@@ -849,12 +849,12 @@
                 </p>
             </div>
 
-            <!-- Dynamic Category Filter Tabs (Centered) -->
-            <div class="flex items-center justify-center gap-2 overflow-x-auto no-scrollbar py-1 reveal-on-scroll">
-                <button onclick="filterShelf('all', this)" class="shelf-filter-btn px-4 py-2 rounded-full text-xs font-mono uppercase tracking-wider transition-colors bg-crimson text-white cursor-pointer">All Works</button>
-                <button onclick="filterShelf('film', this)" class="shelf-filter-btn px-4 py-2 rounded-full text-xs font-mono uppercase tracking-wider transition-colors bg-white/5 text-zinc-400 hover:text-white cursor-pointer">Feature Films</button>
-                <button onclick="filterShelf('ott', this)" class="shelf-filter-btn px-4 py-2 rounded-full text-xs font-mono uppercase tracking-wider transition-colors bg-white/5 text-zinc-400 hover:text-white cursor-pointer">Micro-Dramas & OTT</button>
-                <button onclick="filterShelf('tv', this)" class="shelf-filter-btn px-4 py-2 rounded-full text-xs font-mono uppercase tracking-wider transition-colors bg-white/5 text-zinc-400 hover:text-white cursor-pointer">Television Realities</button>
+            <!-- Dynamic Category Filter Tabs (2x2 Rectangular Grid on Mobile, Original Row on Desktop) -->
+            <div class="grid grid-cols-2 sm:flex sm:flex-wrap items-center justify-center gap-2 py-1 reveal-on-scroll">
+                <button onclick="filterShelf('all', this)" class="shelf-filter-btn w-full sm:w-auto px-4 py-2.5 sm:rounded-full rounded-lg text-xs font-mono uppercase tracking-wider transition-colors bg-crimson text-white cursor-pointer text-center">All Works</button>
+                <button onclick="filterShelf('film', this)" class="shelf-filter-btn w-full sm:w-auto px-4 py-2.5 sm:rounded-full rounded-lg text-xs font-mono uppercase tracking-wider transition-colors bg-white/5 text-zinc-400 hover:text-white cursor-pointer text-center">Feature Films</button>
+                <button onclick="filterShelf('ott', this)" class="shelf-filter-btn w-full sm:w-auto px-4 py-2.5 sm:rounded-full rounded-lg text-xs font-mono uppercase tracking-wider transition-colors bg-white/5 text-zinc-400 hover:text-white cursor-pointer text-center">Micro-Dramas & OTT</button>
+                <button onclick="filterShelf('tv', this)" class="shelf-filter-btn w-full sm:w-auto px-4 py-2.5 sm:rounded-full rounded-lg text-xs font-mono uppercase tracking-wider transition-colors bg-white/5 text-zinc-400 hover:text-white cursor-pointer text-center">Television Realities</button>
             </div>
 
             <!-- Horizontal Shelf Track (10 Verified Posters in images/works/) -->
