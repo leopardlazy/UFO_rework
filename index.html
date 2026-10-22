@@ -1,0 +1,2128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UFO | Media & Event Production • Sahil Sheikh (Film Producer)</title>
+    <meta name="description" content="Turnkey live broadcast execution, arena spectacles, and international feature film production spearheaded by Sahil Sheikh. Producer of Love in Vietnam, Bombay Stories, and reality broadcast floor management.">
+
+    <!-- Fonts: Inter + Plus Jakarta Sans + Space Grotesk -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Tailwind Play CDN for high-velocity responsive utility classes -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        mono: ['"Space Grotesk"', 'monospace']
+                    },
+                    colors: {
+                        obsidian: '#08080a',
+                        surface: '#111116',
+                        'surface-light': '#181820',
+                        crimson: '#d90429',
+                        'crimson-bright': '#ef233c',
+                        accent: '#ff0033'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --crimson: #d90429;
+            --crimson-glow: rgba(217, 4, 41, 0.35);
+            --bg-deep: #08080a;
+        }
+
+        body {
+            background-color: var(--bg-deep);
+            color: #f1f1f4;
+            overflow-x: hidden;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            selection-background-color: #d90429;
+            selection-color: #fff;
+        }
+
+        /* Custom Red Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #08080a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d90429;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ef233c;
+        }
+        html {
+            scrollbar-color: #d90429 #08080a;
+            scrollbar-width: thin;
+        }
+
+        /* Glassmorphic Surfaces */
+        .glass-panel {
+            background: rgba(18, 18, 24, 0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-panel-hover {
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .glass-panel-hover:hover {
+            border-color: rgba(217, 4, 41, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px -10px var(--crimson-glow);
+        }
+
+        /* Ambient Glow Backdrop */
+        .ambient-spotlight {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 0;
+            background: radial-gradient(circle 600px at var(--mouse-x, 50vw) var(--mouse-y, 30vh), rgba(217, 4, 41, 0.07), transparent 80%);
+            transition: opacity 0.4s ease;
+        }
+
+        /* Hide native scrollbars on the shelf */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Custom Modal Backdrop Blur */
+        .modal-active {
+            overflow: hidden;
+        }
+
+        /* 100% Seamless Infinite Marquee */
+        @keyframes marqueeScrollLeft {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-50%, 0, 0); }
+        }
+        @keyframes marqueeScrollRight {
+            0% { transform: translate3d(-50%, 0, 0); }
+            100% { transform: translate3d(0, 0, 0); }
+        }
+
+        .marquee-track-left {
+            display: flex;
+            width: max-content;
+            animation: marqueeScrollLeft 30s linear infinite;
+            will-change: transform;
+            transform: translateZ(0);
+        }
+
+        .marquee-track-right {
+            display: flex;
+            width: max-content;
+            animation: marqueeScrollRight 30s linear infinite;
+            will-change: transform;
+            transform: translateZ(0);
+        }
+
+        .marquee-track-left:hover,
+        .marquee-track-right:hover {
+            animation-play-state: paused;
+        }
+
+        /* Lightweight flat surface without heavy glass blur re-renders */
+        .marquee-card {
+            background-color: #111116;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        /* Fluid Red Liquid Wave Inside UFO */
+        .liquid-ufo {
+            background-image: 
+                radial-gradient(circle at 50% 100%, #800010 10%, transparent 60%),
+                radial-gradient(ellipse at 50% 0%, #ff2a4b 0%, #d90429 50%, #700010 100%);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            display: inline-block;
+            filter: drop-shadow(0 0 25px rgba(217, 4, 41, 0.45));
+            animation: liquidSurge 7s ease-in-out infinite alternate;
+        }
+
+        @keyframes liquidSurge {
+            0% {
+                background-position: 0% 80%;
+                filter: drop-shadow(0 0 20px rgba(217, 4, 41, 0.35));
+            }
+            50% {
+                background-position: 100% 20%;
+                filter: drop-shadow(0 0 35px rgba(239, 35, 60, 0.6));
+            }
+            100% {
+                background-position: 0% 80%;
+                filter: drop-shadow(0 0 20px rgba(217, 4, 41, 0.35));
+            }
+        }
+
+        .liquid-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .liquid-container::after {
+            content: "UFO.";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                120deg, 
+                transparent 20%, 
+                rgba(255, 120, 140, 0.6) 45%, 
+                rgba(255, 255, 255, 0.8) 50%, 
+                rgba(255, 120, 140, 0.6) 55%, 
+                transparent 80%
+            );
+            background-size: 300% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fluidCaustic 5s ease-in-out infinite;
+            pointer-events: none;
+            mix-blend-mode: screen;
+        }
+
+        @keyframes fluidCaustic {
+            0% { background-position: 200% 0; }
+            50% { background-position: 0% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        /* Native Smooth Raise & Appear Scroll Transition */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        .reveal-on-scroll.revealed {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+    </style>
+</head>
+<body class="relative antialiased">
+
+    <!-- Interactive Ambient Canvas & Mouse Spotlight -->
+    <div id="ambientSpot" class="ambient-spotlight"></div>
+    <canvas id="ambientCanvas" class="fixed inset-0 pointer-events-none z-[1] w-full h-full opacity-40"></canvas>
+
+    <!-- Top Navigation Bar -->
+    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="mainHeader">
+        <div class="w-full px-6 sm:px-16 py-4 sm:py-6 flex items-center justify-between relative z-50 bg-obsidian/95 backdrop-blur-md border-b border-white/5">
+            
+            <a href="#hero" class="flex items-center gap-2">
+                <span class="font-extrabold text-2xl tracking-tighter text-white">UFO<span class="text-crimson">.</span></span>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center gap-10 text-xs font-semibold uppercase tracking-[3px] text-zinc-300">
+                <a href="#about" class="hover:text-white transition-colors">About</a>
+                <a href="#founder" class="hover:text-white transition-colors">Founder</a>
+                <a href="#banners" class="hover:text-white transition-colors">Banners</a>
+                <a href="#works" class="hover:text-white transition-colors">Works</a>
+                <a href="#services" class="hover:text-white transition-colors">Services</a>
+                <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+            </nav>
+
+            <!-- Desktop Get In Touch CTA -->
+            <a href="#contact" class="hidden sm:inline-flex items-center gap-3 px-7 py-3 text-xs uppercase font-extrabold tracking-[3px] bg-crimson hover:bg-crimson-bright text-white transition-all rounded-md shadow-lg shadow-crimson/30 hover:scale-105 active:scale-95">
+                <i class="fa-solid fa-paper-plane text-xs"></i>
+                <span>Get In Touch</span>
+            </a>
+              
+            <!-- Mobile Animated Hamburger Button -->
+            <button id="burgerBtn" onclick="toggleMobileMenu()" class="md:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5 focus:outline-none" aria-label="Toggle Navigation">
+                <span id="stickTop" class="w-6 h-0.5 bg-white rounded-full transition-all duration-300 origin-center"></span>
+                <span id="stickBot" class="w-6 h-0.5 bg-white rounded-full transition-all duration-300 origin-center"></span>
+            </button>
+        </div>
+
+        <!-- Mobile Curtain Dropdown Menu Overlay (Smooth Slide Down / Roll Up) -->
+        <!-- Mobile Curtain Dropdown Menu Overlay (Centered Items) -->
+        <div id="mobileNav" class="absolute top-full left-0 right-0 bg-[#0d0e12]/95 backdrop-blur-xl border-b border-white/10 px-8 space-y-4 text-xs font-mono uppercase tracking-[3px] shadow-2xl z-40 overflow-hidden transition-all duration-400 ease-in-out max-h-0 opacity-0 pointer-events-none py-0 -translate-y-2 text-center">
+            <div class="pt-4 pb-2 space-y-4">
+                <a href="#about" onclick="toggleMobileMenu()" class="block text-zinc-300 hover:text-crimson py-2 border-b border-white/5 transition-colors">About</a>
+                <a href="#founder" onclick="toggleMobileMenu()" class="block text-zinc-300 hover:text-crimson py-2 border-b border-white/5 transition-colors">Founder</a> 
+                <a href="#banners" onclick="toggleMobileMenu()" class="block text-zinc-300 hover:text-crimson py-2 border-b border-white/5 transition-colors">Banners</a>
+                <a href="#works" onclick="toggleMobileMenu()" class="block text-zinc-300 hover:text-crimson py-2 border-b border-white/5 transition-colors">Works</a>
+                <a href="#services" onclick="toggleMobileMenu()" class="block text-zinc-300 hover:text-crimson py-2 border-b border-white/5 transition-colors">Services</a>
+                <a href="#contact" onclick="toggleMobileMenu()" class="block text-zinc-300 hover:text-crimson py-2 border-b border-white/5 transition-colors">Contact</a>
+                <a href="#contact" onclick="toggleMobileMenu()" class="flex items-center justify-center gap-3 py-3 rounded-md bg-crimson hover:bg-crimson-bright text-white font-extrabold tracking-[3px] shadow-lg shadow-crimson/30 transition-all">
+                    <i class="fa-solid fa-paper-plane text-xs"></i>
+                    <span>Get In Touch</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Cinematic Zoom & Statement Intro (Wavvy Mechanics) -->
+    <div id="hero" class="relative w-full bg-obsidian">
+        
+        <!-- Pinned Viewport Container -->
+        <div class="sticky top-0 w-full h-screen overflow-hidden flex items-center justify-center bg-obsidian">
+
+            <!-- LAYER 1: Full Landing Homepage (Mobile Overlap with Zero Void Gap / Desktop Split) -->
+            <div id="heroLandingLayer" class="absolute inset-0 w-full h-full flex flex-col lg:flex-row opacity-0 pointer-events-none scale-95 z-10 transition-all duration-300 ease-out bg-obsidian overflow-hidden">
+                
+                <!-- Arena Photo (Mobile: Takes top 58vh so it reaches the text; Desktop: Right 60% Column) -->
+                <div class="relative w-full h-[58vh] sm:h-[60vh] shrink-0 overflow-hidden lg:static lg:w-[60%] lg:h-full order-1 lg:order-2">
+                    <img src="images/hero-bg.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1800&q=80'" alt="Arena Staging" class="w-full h-full object-cover object-bottom lg:object-center">
+                    
+                    <!-- Desktop Left Vignette -->
+                    <div class="absolute inset-0 bg-gradient-to-r from-obsidian via-transparent to-transparent hidden lg:block pointer-events-none"></div>
+                    
+                    <!-- Mobile Bottom Fade that seamlessly dissolves behind UFO. text -->
+                    <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-obsidian via-obsidian/60 to-transparent lg:hidden block pointer-events-none"></div>
+                    
+                    <!-- Desktop Floating Circular Play Button -->
+                    <a href="https://www.youtube.com/watch?v=H9jPxhjBPY4" target="_blank" rel="noopener noreferrer" class="hidden lg:flex absolute right-[12%] bottom-[22%] w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-crimson hover:bg-crimson-bright text-white items-center justify-center text-xl sm:text-2xl shadow-2xl shadow-crimson/50 hover:scale-105 transition-all z-30" title="Watch Showreel">
+                        <i class="fa-solid fa-play ml-1"></i>
+                    </a>
+                </div>
+
+                <!-- Text & Branding Pane -->
+                <div class="w-full lg:w-[40%] flex-1 lg:h-full flex flex-col justify-start lg:justify-center px-6 sm:px-12 xl:px-20 mt-10 sm:-mt-24 lg:mt-0 pb-6 lg:pb-0 relative z-20 order-2 lg:order-1">
+                    
+                    <!-- Dot Matrix Pattern -->
+                    <div class="grid absolute left-4 sm:left-6 -top-4 lg:top-[52%] grid-cols-6 gap-2 opacity-25 pointer-events-none">
+                        <span class="w-1 h-1 rounded-full bg-crimson"></span><span class="w-1 h-1 rounded-full bg-crimson"></span><span class="w-1 h-1 rounded-full bg-crimson"></span><span class="w-1 h-1 rounded-full bg-crimson"></span><span class="w-1 h-1 rounded-full bg-crimson"></span><span class="w-1 h-1 rounded-full bg-crimson"></span>
+                        <span class="w-1 h-1 rounded-full bg-crimson"></span><span class="w-1 h-1 rounded-full bg-crimson"></span><span class="w-1 h-1 rounded-full bg-crimson"></span><span class="w-1 h-1 rounded-full bg-crimson"></span><span class="w-1 h-1 rounded-full bg-crimson"></span><span class="w-1 h-1 rounded-full bg-crimson"></span>
+                        <span class="w-1 h-1 rounded-full bg-crimson"></span><span class="w-1 h-1 rounded-full bg-crimson"></span><span class="w-1 h-1 rounded-full bg-crimson"></span><span class="w-1 h-1 rounded-full bg-crimson"></span><span class="w-1 h-1 rounded-full bg-crimson"></span><span class="w-1 h-1 rounded-full bg-crimson"></span>
+                    </div>
+
+                    <!-- Vertical Scroll Indicator (Desktop Only) -->
+                    <div class="hidden lg:block absolute left-8 bottom-12 origin-bottom-left -rotate-90 text-[10px] tracking-[4px] uppercase text-zinc-500 font-mono pb-2 border-b-2 border-crimson pointer-events-none">
+                        Scroll Down
+                    </div>
+
+                    <!-- Hero Logo: Sits directly over the photo bottom -->
+                    <div class="text-[5.2rem] sm:text-[6.5rem] lg:text-[7.5rem] xl:text-[8.5rem] font-black tracking-tight text-crimson leading-[0.85] select-none relative z-30 drop-shadow-2xl">
+                        UFO<span class="text-crimson">.</span>
+                    </div>
+
+                    <!-- Tagline Block -->
+                    <div class="mt-3.5 sm:mt-5 mb-4 sm:mb-6 space-y-1.5 max-w-sm sm:max-w-md">
+                        <span class="block text-[10px] sm:text-[11px] font-mono uppercase tracking-[3px] text-crimson font-bold">
+                            Films • Television • Live Events
+                        </span>
+                        <p class="text-[1.35rem] sm:text-2xl lg:text-4xl text-white font-light tracking-tight leading-snug">
+                            Spectacle on <strong class="font-bold text-white">Stage.</strong><br>
+                            Stories on <strong class="font-bold text-white">Screen.</strong>
+                        </p>
+                    </div>
+
+                    <!-- Social Icons + Mobile Inline Reel Button -->
+                    <div class="flex items-center gap-4 sm:gap-5 text-zinc-400 text-sm sm:text-base lg:text-lg">
+                        <a href="https://www.imdb.com/name/nm14185875/" target="_blank" rel="noopener noreferrer" class="hover:text-amber-400 transition-colors" title="IMDb"><i class="fa-brands fa-imdb text-base sm:text-lg"></i></a>
+                        <a href="https://www.instagram.com/ufotv.in/" target="_blank" rel="noopener noreferrer" class="hover:text-pink-500 transition-colors" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.twitter.com/ufotvin/" target="_blank" rel="noopener noreferrer" class="hover:text-sky-400 transition-colors" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="https://www.facebook.com/ufotv.in/" target="_blank" rel="noopener noreferrer" class="hover:text-blue-500 transition-colors" title="Facebook"><i class="fa-brands fa-facebook-f text-xs sm:text-sm"></i></a>
+                        <a href="https://www.youtube.com/channel/UCS44T0CQksdyYLwAx7SAdDA" target="_blank" rel="noopener noreferrer" class="hover:text-red-500 transition-colors" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+
+                        <a href="https://www.youtube.com/watch?v=H9jPxhjBPY4" target="_blank" rel="noopener noreferrer" class="lg:hidden inline-flex items-center gap-2 pl-3 border-l border-white/20 text-[11px] font-mono uppercase text-white hover:text-crimson transition-colors font-bold tracking-wider">
+                            <i class="fa-solid fa-circle-play text-crimson text-sm"></i>
+                            <span>Play Reel</span>
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- LAYER 2: Centered Statement (Clean, Solid White, No Effects) -->
+            <div id="heroStatementLayer" class="absolute inset-0 w-full h-full flex items-center justify-center px-8 text-center pointer-events-none opacity-0 z-20 transition-all duration-200 ease-out">
+                <blockquote class="text-3xl sm:text-5xl xl:text-6xl font-light text-white tracking-tight leading-tight max-w-4xl select-none">
+                    “Spectacle on <strong class="font-bold text-white">Stage.</strong><br>
+                    Stories on <strong class="font-bold text-white">Screen.”</strong>
+                </blockquote>
+            </div>
+
+            <!-- LAYER 3: Initial Minimal UFO Mark (Liquid Surge Effect) -->
+            <div id="heroLogoLayer" class="absolute inset-0 w-full h-full flex items-center justify-center bg-obsidian z-30 pointer-events-none">
+                <div id="kineticLogo" class="select-none transition-transform duration-150 ease-out origin-center">
+                    <span class="liquid-container text-7xl sm:text-9xl font-black tracking-tighter">
+                        <span class="liquid-ufo">UFO.</span>
+                    </span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Scroll Distance Runway -->
+        <div class="h-[250vh] w-full pointer-events-none"></div>
+
+    </div>
+
+    <!-- Section 1: Who We Are / Agency DNA (Wide Album Below Title & Overview) -->
+    <section id="about" class="py-24 z-10 relative px-5 sm:px-8 border-b border-white/5">
+        <div class="max-w-7xl mx-auto space-y-16">
+            
+            <!-- Top Block: Centered Headline & Primary Overview Text -->
+            <div class="max-w-4xl mx-auto text-center space-y-4 reveal-on-scroll">
+                <span class="text-xs font-mono uppercase tracking-widest text-crimson font-bold block">
+                    01 / AGENCY OVERVIEW
+                </span>
+                <h2 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
+                    A Decade of Command on the Floor.
+                </h2>
+                <p class="text-base sm:text-lg text-zinc-300 font-light leading-relaxed pt-2">
+                    Operating continuously since 2013 from our Mumbai headquarters and regional nodes in New Delhi and Indore, UFO (United Floor Organisers) engineers high-stakes broadcast productions, multi-camera reality sets, arena concerts, and corporate galas. We provide the infrastructure and poise required when millions of viewers and millions of rupees are on the line.
+                </p>
+            </div>
+
+            <!-- Big Widescreen 10-Photo Album (Full Width, 3:2 Sweet-Spot) -->
+            <div class="w-full relative group select-none reveal-on-scroll">
+                <div class="w-full aspect-[3/2] sm:aspect-[16/10] max-h-[640px] rounded-3xl overflow-hidden glass-panel border border-white/10 shadow-2xl relative">
+                    
+                    <!-- 10 Album Slides (Anchored 20% to Protect Headroom) -->
+                    <div id="aboutAlbumSlides" class="relative w-full h-full">
+                        <img src="images/about/about-01.jpg" alt="Stage Production 01" class="about-slide absolute inset-0 w-full h-full object-cover object-[center_20%] transition-opacity duration-700 opacity-100">
+                        <img src="images/about/about-02.jpg" alt="Stage Production 02" class="about-slide absolute inset-0 w-full h-full object-cover object-[center_20%] transition-opacity duration-700 opacity-0 pointer-events-none">
+                        <img src="images/about/about-03.jpg" alt="Stage Production 03" class="about-slide absolute inset-0 w-full h-full object-cover object-[center_20%] transition-opacity duration-700 opacity-0 pointer-events-none">
+                        <img src="images/about/about-04.jpg" alt="Stage Production 04" class="about-slide absolute inset-0 w-full h-full object-cover object-[center_20%] transition-opacity duration-700 opacity-0 pointer-events-none">
+                        <img src="images/about/about-05.jpg" alt="Stage Production 05" class="about-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-0 pointer-events-none">
+                        <img src="images/about/about-06.jpg" alt="Stage Production 06" class="about-slide absolute inset-0 w-full h-full object-cover object-[center_20%] transition-opacity duration-700 opacity-0 pointer-events-none">
+                        <img src="images/about/about-07.jpg" alt="Stage Production 07" class="about-slide absolute inset-0 w-full h-full object-cover object-[center_20%] transition-opacity duration-700 opacity-0 pointer-events-none">
+                        <img src="images/about/about-08.jpg" alt="Stage Production 08" class="about-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-0 pointer-events-none">
+                        <img src="images/about/about-09.jpg" alt="Stage Production 09" class="about-slide absolute inset-0 w-full h-full object-cover object-[center_20%] transition-opacity duration-700 opacity-0 pointer-events-none">
+                        <img src="images/about/about-10.jpg" alt="Stage Production 10" class="about-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-0 pointer-events-none">
+                    </div>
+
+                    <!-- Vignette Gradient -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-obsidian/80 via-transparent to-transparent pointer-events-none"></div>
+
+                    <!-- Live Counter Badge -->
+                    <div class="absolute top-5 left-5 z-20 px-4 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-xs font-mono tracking-wider text-zinc-300">
+                        <span id="aboutSlideCounter" class="text-white font-bold">01</span> / 10
+                    </div>
+
+                    <!-- Prev / Next Navigation Arrows -->
+                    <button type="button" onclick="prevAboutSlide()" class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/60 hover:bg-crimson text-white flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 z-30 border border-white/15 backdrop-blur-sm cursor-pointer shadow-xl" aria-label="Previous Photo">
+                        <i class="fa-solid fa-chevron-left text-sm"></i>
+                    </button>
+                    <button type="button" onclick="nextAboutSlide()" class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/60 hover:bg-crimson text-white flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 z-30 border border-white/15 backdrop-blur-sm cursor-pointer shadow-xl" aria-label="Next Photo">
+                        <i class="fa-solid fa-chevron-right text-sm"></i>
+                    </button>
+
+                    <!-- Dot Indicators -->
+                    <div id="aboutSlideDots" class="absolute bottom-5 left-0 right-0 z-20 flex items-center justify-center gap-2 pointer-events-auto">
+                        <button type="button" onclick="setAboutSlide(0)" class="about-dot w-8 h-1.5 rounded-full bg-crimson transition-all cursor-pointer" aria-label="Slide 1"></button>
+                        <button type="button" onclick="setAboutSlide(1)" class="about-dot w-2 h-1.5 rounded-full bg-white/30 hover:bg-white transition-all cursor-pointer" aria-label="Slide 2"></button>
+                        <button type="button" onclick="setAboutSlide(2)" class="about-dot w-2 h-1.5 rounded-full bg-white/30 hover:bg-white transition-all cursor-pointer" aria-label="Slide 3"></button>
+                        <button type="button" onclick="setAboutSlide(3)" class="about-dot w-2 h-1.5 rounded-full bg-white/30 hover:bg-white transition-all cursor-pointer" aria-label="Slide 4"></button>
+                        <button type="button" onclick="setAboutSlide(4)" class="about-dot w-2 h-1.5 rounded-full bg-white/30 hover:bg-white transition-all cursor-pointer" aria-label="Slide 5"></button>
+                        <button type="button" onclick="setAboutSlide(5)" class="about-dot w-2 h-1.5 rounded-full bg-white/30 hover:bg-white transition-all cursor-pointer" aria-label="Slide 6"></button>
+                        <button type="button" onclick="setAboutSlide(6)" class="about-dot w-2 h-1.5 rounded-full bg-white/30 hover:bg-white transition-all cursor-pointer" aria-label="Slide 7"></button>
+                        <button type="button" onclick="setAboutSlide(7)" class="about-dot w-2 h-1.5 rounded-full bg-white/30 hover:bg-white transition-all cursor-pointer" aria-label="Slide 8"></button>
+                        <button type="button" onclick="setAboutSlide(8)" class="about-dot w-2 h-1.5 rounded-full bg-white/30 hover:bg-white transition-all cursor-pointer" aria-label="Slide 9"></button>
+                        <button type="button" onclick="setAboutSlide(9)" class="about-dot w-2 h-1.5 rounded-full bg-white/30 hover:bg-white transition-all cursor-pointer" aria-label="Slide 10"></button>
+                    </div>
+
+                </div>
+
+                <!-- Red Ambient Backlight Glow -->
+                <div class="absolute -inset-1 rounded-3xl bg-crimson/15 -z-10 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            </div>
+
+            <!-- Supporting Mission Paragraph (Centered) -->
+            <p class="text-sm sm:text-base text-zinc-400 font-light leading-relaxed max-w-3xl mx-auto text-center reveal-on-scroll">
+                Our mission is to provide the most seamless and commanding experience across every broadcast floor and soundstage, ensuring high-density crowd safety, flawless artist coordination, and zero-compromise production value.
+            </p>
+
+            <!-- 4 Counter Metrics (Full 4-Column Grid) -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 w-full reveal-on-scroll">
+                <div class="glass-panel p-6 rounded-2xl border border-white/5 relative z-10">
+                    <div class="text-3xl sm:text-4xl font-extrabold text-white font-mono counter-num" data-target="11">0</div>
+                    <div class="text-xs text-zinc-300 font-mono mt-1">Years Active (Since 2013)</div>
+                </div>
+                <div class="glass-panel p-6 rounded-2xl border border-white/5 relative z-10">
+                    <div class="text-3xl sm:text-4xl font-extrabold text-white font-mono counter-num" data-target="500">0</div>
+                    <div class="text-xs text-zinc-300 font-mono mt-1">Broadcast Episodes</div>
+                </div>
+                <div class="glass-panel p-6 rounded-2xl border border-white/5 relative z-10">
+                    <div class="text-3xl sm:text-4xl font-extrabold text-white font-mono counter-num" data-target="6">0</div>
+                    <div class="text-xs text-zinc-300 font-mono mt-1">Countries Filmed In</div>
+                </div>
+                <div class="glass-panel p-6 rounded-2xl border border-white/5 relative z-10">
+                    <div class="text-3xl sm:text-4xl font-extrabold text-crimson font-mono counter-num" data-target="100">0</div>
+                    <div class="text-xs text-zinc-300 font-mono mt-1">Million+ Viewers Reached</div>
+                </div>
+            </div>
+
+            <!-- Modern 4-Pillar Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="glass-panel glass-panel-hover p-6 rounded-2xl flex flex-col justify-between reveal-on-scroll">
+                    <div>
+                        <div class="w-10 h-10 rounded-xl bg-crimson/10 border border-crimson/20 flex items-center justify-center text-crimson mb-4 text-base">
+                            <i class="fa-solid fa-tower-broadcast"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Floor & Studio Leadership</h3>
+                        <p class="text-xs text-zinc-400 leading-relaxed">
+                            Specializing in live audience coordination, timing cues, high-density stage safety, and direct synchronization with multi-camera OB vans.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="glass-panel glass-panel-hover p-6 rounded-2xl flex flex-col justify-between reveal-on-scroll">
+                    <div>
+                        <div class="w-10 h-10 rounded-xl bg-crimson/10 border border-crimson/20 flex items-center justify-center text-crimson mb-4 text-base">
+                            <i class="fa-solid fa-users-viewfinder"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Celebrity & Talent Matrix</h3>
+                        <p class="text-xs text-zinc-400 leading-relaxed">
+                            Direct, established rapport with Bollywood A-listers, sports athletes, television hosts, and digital creators for guest appearances and judging panels.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="glass-panel glass-panel-hover p-6 rounded-2xl flex flex-col justify-between reveal-on-scroll">
+                    <div>
+                        <div class="w-10 h-10 rounded-xl bg-crimson/10 border border-crimson/20 flex items-center justify-center text-crimson mb-4 text-base">
+                            <i class="fa-solid fa-coins"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">High Screen Value</h3>
+                        <p class="text-xs text-zinc-400 leading-relaxed">
+                            We negotiate directly with trusted technical vendors, lighting technicians, and equipment houses to ensure production funds show visibly on camera.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="glass-panel glass-panel-hover p-6 rounded-2xl flex flex-col justify-between reveal-on-scroll">
+                    <div>
+                        <div class="w-10 h-10 rounded-xl bg-crimson/10 border border-crimson/20 flex items-center justify-center text-crimson mb-4 text-base">
+                            <i class="fa-solid fa-map-location-dot"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Pan-India Operations</h3>
+                        <p class="text-xs text-zinc-400 leading-relaxed">
+                            Permanent operating bases in Mumbai, New Delhi, and Indore with active logistical pipelines to execute simultaneous multi-city productions.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Section 2: Founder Spotlight (Sahil Sheikh) with Interactive Tabs -->
+    <section id="founder" class="py-24 z-10 relative px-5 sm:px-8 bg-surface/30 border-b border-white/5">
+        <div class="max-w-7xl mx-auto space-y-12">
+            
+            <!-- Founder Header (Centered Reordered Flow) -->
+            <div class="max-w-4xl mx-auto flex flex-col items-center text-center space-y-6 pb-6 reveal-on-scroll">
+                
+                <!-- 1. Tagline / Category -->
+                <span class="text-xs font-mono uppercase tracking-widest text-crimson font-bold block">
+                    02 / EXECUTIVE LEADERSHIP
+                </span>
+
+                <!-- 2. Founder Name -->
+                <h2 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
+                    Sahil Sheikh
+                </h2>
+
+                <!-- 3. Designation -->
+                <p class="text-zinc-400 text-base sm:text-lg font-light">
+                    Founder & Independent Film/Broadcast Producer
+                </p>
+
+                <!-- 4. Portrait Frame (Responsive & Centered) -->
+                <div class="w-full max-w-lg mx-auto py-2 group">
+                    <div class="aspect-[4/3] w-full rounded-2xl overflow-hidden glass-panel border border-white/10 shadow-2xl relative">
+                        <img src="images/leadership/leadership-01.jpg" 
+                             alt="Sahil Sheikh" 
+                             class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-obsidian/60 via-transparent to-transparent"></div>
+                    </div>
+                    <div class="absolute -inset-1 rounded-2xl bg-crimson/15 -z-10 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                </div>
+
+                <!-- 5. Bio Description -->
+                <p class="text-sm sm:text-base text-zinc-300 font-light leading-relaxed max-w-2xl mx-auto pt-1">
+                    Leading high-velocity broadcast floor executions, primetime reality formats, and international film co-productions with a decade-long track record of zero-error command.
+                </p>
+
+                <!-- 6. IMDb Button -->
+                <div class="pt-2 sm:pt-4">
+                    <a href="https://www.imdb.com/name/nm14185875/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 px-6 py-3 rounded-xl bg-[#f5c518] hover:bg-[#e2b616] text-black font-extrabold text-xs uppercase tracking-wider transition-all shadow-lg shadow-amber-500/20 hover:scale-[1.02] active:scale-95">
+                        <i class="fa-brands fa-imdb text-2xl leading-none"></i>
+                        <span>Official IMDb Profile</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- Interactive Accolade Switcher / Dossier -->
+            <div class="glass-panel rounded-3xl p-6 sm:p-10 border border-white/10 reveal-on-scroll">
+                
+                <!-- Tab Buttons -->
+                <div class="flex flex-wrap items-center gap-3 pb-8 border-b border-white/10">
+                    <button onclick="switchFounderTab('films')" id="tabBtn-films" class="founder-tab-btn px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold uppercase tracking-wider transition-colors bg-crimson text-white cursor-pointer">
+                        <i class="fa-solid fa-clapperboard mr-2"></i> Feature Films
+                    </button>
+                    <button onclick="switchFounderTab('ott')" id="tabBtn-ott" class="founder-tab-btn px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold uppercase tracking-wider transition-colors bg-white/5 text-zinc-400 cursor-pointer">
+                        <i class="fa-solid fa-video mr-2"></i> Micro-Dramas & OTT
+                    </button>
+                    <button onclick="switchFounderTab('reality')" id="tabBtn-reality" class="founder-tab-btn px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold uppercase tracking-wider transition-colors bg-white/5 text-zinc-400 cursor-pointer">
+                        <i class="fa-solid fa-tv mr-2"></i> Primetime Reality Shows
+                    </button>
+                </div>
+
+                <!-- Tab 1: Films Content -->
+                <div id="tabContent-films" class="founder-tab-panel pt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="glass-panel p-6 rounded-2xl border-l-4 border-crimson space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="px-2.5 py-1 rounded bg-crimson/20 text-crimson-bright font-mono text-xs font-bold uppercase">PRODUCER</span>
+                            <span class="text-xs text-zinc-300 font-mono">Global Release</span>
+                        </div>
+                        <h4 class="text-2xl font-bold text-white">Love in Vietnam</h4>
+                        <p class="text-xs sm:text-sm text-zinc-300 leading-relaxed">
+                            A high-profile cinematic milestone shot across iconic locations in Vietnam and India. Representing cultural bridges and global co-production financing. Streaming on JioHotstar.
+                        </p>
+                        <div class="pt-2 flex items-center gap-2 text-xs text-zinc-300">
+                            <i class="fa-solid fa-award text-amber-400"></i> International Release • Dual Country Shoot
+                        </div>
+                    </div>
+
+                    <div class="glass-panel p-6 rounded-2xl border-l-4 border-white/40 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="px-2.5 py-1 rounded bg-white/10 text-white font-mono text-xs font-bold uppercase">ASSOCIATE PRODUCER</span>
+                            <span class="text-xs text-zinc-300 font-mono">Streaming on JioHotstar</span>
+                        </div>
+                        <h4 class="text-2xl font-bold text-white">Bombay Stories</h4>
+                        <p class="text-xs sm:text-sm text-zinc-300 leading-relaxed">
+                            Gripping multi-strand urban crime and human drama capturing the raw pulse of Mumbai's underworld and aspirations. Premiered to strong critical reviews on JioHotstar.
+                        </p>
+                        <div class="pt-2 flex items-center gap-2 text-xs text-zinc-300">
+                            <i class="fa-solid fa-award text-amber-400"></i> Acclaimed Narrative Drama
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 2: Micro-Dramas & OTT -->
+                <div id="tabContent-ott" class="founder-tab-panel hidden pt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    
+                    <!-- 1. The Great Indian Kapil Show -->
+                    <div class="glass-panel p-5 rounded-2xl border border-white/5 space-y-2">
+                        <span class="text-[10px] font-mono text-crimson font-bold uppercase">FLOOR MANAGER</span>
+                        <h4 class="text-lg font-bold text-white">The Great Indian Kapil Show</h4>
+                        <p class="text-xs text-zinc-400">Netflix Original flagship global streaming comedy series. Direct floor command and celebrity guest choreography.</p>
+                    </div>
+
+                    <!-- 2. Blind Frame -->
+                    <div class="glass-panel p-5 rounded-2xl border border-white/5 space-y-2">
+                        <span class="text-[10px] font-mono text-crimson font-bold uppercase">PRODUCER</span>
+                        <h4 class="text-lg font-bold text-white">Blind Frame</h4>
+                        <p class="text-xs text-zinc-400">Filmed on location in Cannes, France. Ultra short-format festival-grade storytelling (Awaiting Broadcast).</p>
+                    </div>
+
+                    <!-- 3. Pyaar Reset -->
+                    <div class="glass-panel p-5 rounded-2xl border border-white/5 space-y-2">
+                        <span class="text-[10px] font-mono text-crimson font-bold uppercase">PRODUCER</span>
+                        <h4 class="text-lg font-bold text-white">Pyaar Reset</h4>
+                        <p class="text-xs text-zinc-400">Digital high-velocity micro-drama produced for MX Fatafat mobile audiences.</p>
+                    </div>
+
+                    <!-- 4. Love Beneath Paris Skies -->
+                    <div class="glass-panel p-5 rounded-2xl border border-white/5 space-y-2">
+                        <span class="text-[10px] font-mono text-crimson font-bold uppercase">PRODUCER</span>
+                        <h4 class="text-lg font-bold text-white">Love Beneath Paris Skies</h4>
+                        <p class="text-xs text-zinc-400">European original produced for Kuku TV, shot across Paris landmarks.</p>
+                    </div>
+
+                    <!-- 5. Found Real Love in Spain -->
+                    <div class="glass-panel p-5 rounded-2xl border border-white/5 space-y-2">
+                        <span class="text-[10px] font-mono text-crimson font-bold uppercase">PRODUCER</span>
+                        <h4 class="text-lg font-bold text-white">Found Real Love in Spain</h4>
+                        <p class="text-xs text-zinc-400">Original romantic micro-series filmed on location in Spain for Kuku TV.</p>
+                    </div>
+
+                </div>
+
+                <!-- Tab 3: Reality Shows Content -->
+                <div id="tabContent-reality" class="founder-tab-panel hidden pt-8">
+                    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+                        <div class="glass-panel p-4 rounded-xl text-center border border-white/5 hover:border-crimson/50 transition-all">
+                            <span class="text-xs font-bold text-white block">Kapil Sharma Show</span>
+                            <span class="text-[10px] text-zinc-300 font-mono">Floor Management</span>
+                        </div>
+                        <div class="glass-panel p-4 rounded-xl text-center border border-white/5 hover:border-crimson/50 transition-all">
+                            <span class="text-xs font-bold text-white block">Bigg Boss</span>
+                            <span class="text-[10px] text-zinc-300 font-mono">3 Language Formats</span>
+                        </div>
+                        <div class="glass-panel p-4 rounded-xl text-center border border-white/5 hover:border-crimson/50 transition-all">
+                            <span class="text-xs font-bold text-white block">India’s Got Talent</span>
+                            <span class="text-[10px] text-zinc-300 font-mono">Primetime Stage</span>
+                        </div>
+                        <div class="glass-panel p-4 rounded-xl text-center border border-white/5 hover:border-crimson/50 transition-all">
+                            <span class="text-xs font-bold text-white block">Playground</span>
+                            <span class="text-[10px] text-zinc-300 font-mono">Gaming Reality</span>
+                        </div>
+                        <div class="glass-panel p-4 rounded-xl text-center border border-white/5 hover:border-crimson/50 transition-all">
+                            <span class="text-xs font-bold text-white block">Battleground</span>
+                            <span class="text-[10px] text-zinc-300 font-mono">Digital Broadcast</span>
+                        </div>
+                        <div class="glass-panel p-4 rounded-xl text-center border border-white/5 hover:border-crimson/50 transition-all">
+                            <span class="text-xs font-bold text-white block">Bharat Ke Super Founders</span>
+                            <span class="text-[10px] text-zinc-300 font-mono">Startup Reality</span>
+                        </div>
+                        <div class="glass-panel p-4 rounded-xl text-center border border-white/5 hover:border-crimson/50 transition-all">
+                            <span class="text-xs font-bold text-white block">Engage</span>
+                            <span class="text-[10px] text-zinc-300 font-mono">Show Floor</span>
+                        </div>
+                        <div class="glass-panel p-4 rounded-xl text-center border border-white/5 hover:border-crimson/50 transition-all">
+                            <span class="text-xs font-bold text-white block">The Society</span>
+                            <span class="text-[10px] text-zinc-300 font-mono">Broadcast Series</span>
+                        </div>
+                        <div class="glass-panel p-4 rounded-xl text-center border border-white/5 hover:border-crimson/50 transition-all">
+                            <span class="text-xs font-bold text-white block">Alliance</span>
+                            <span class="text-[10px] text-zinc-300 font-mono">Special Production</span>
+                        </div>
+                        <div class="glass-panel p-4 rounded-xl text-center border border-white/5 hover:border-crimson/50 transition-all">
+                            <span class="text-xs font-bold text-white block">Comedy Nights Bachao</span>
+                            <span class="text-[10px] text-zinc-300 font-mono">Studio Floor</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Section 3: Production Ecosystem / Three Houses -->
+    <section id="banners" class="py-24 z-10 relative px-5 sm:px-8 border-b border-white/5 bg-obsidian">
+        <div class="max-w-7xl mx-auto space-y-12">
+            
+            <!-- Section Header -->
+            <div class="max-w-3xl mx-auto text-center space-y-4 reveal-on-scroll">
+               <span class="text-xs font-mono uppercase tracking-widest text-crimson font-bold block">
+                   03 / PRODUCTION ECOSYSTEM
+               </span>
+               <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+                  Three Production Houses. One Founder.
+                </h2>
+               <p class="text-sm sm:text-base text-zinc-400 font-light leading-relaxed">
+                 UFO, Mango Tree Entertainment, and Vyom Verse Films were founded by Sahil Sheikh to operate across complementary verticals of the entertainment industry—combining production experience, industry relationships, and creative execution.
+               </p>
+            </div>
+
+            <!-- 3 Production Houses Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <!-- House 1: UFO -->
+                <div class="glass-panel glass-panel-hover p-8 rounded-3xl flex flex-col justify-between border border-white/10 relative overflow-hidden group reveal-on-scroll">
+                    <div class="space-y-4 relative z-10">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[11px] font-mono uppercase tracking-wider text-crimson font-bold bg-crimson/10 border border-crimson/20 px-3 py-1 rounded-full">
+                                TV Production
+                            </span>
+                            <span class="text-zinc-500 text-xs font-mono">01</span>
+                        </div>
+                        <h3 class="text-2xl font-black text-white tracking-tight group-hover:text-crimson-bright transition-colors">
+                            UFO (United Floor Organisers)
+                        </h3>
+                        <p class="text-xs font-mono uppercase tracking-widest text-zinc-400">
+                            television production, floor management, reality shows
+                        </p>
+                        <p class="text-xs sm:text-sm text-zinc-300 leading-relaxed font-light">
+                            Specialises in primetime television broadcast execution, live arena floor management, reality show sets, vertical micro-dramas, and turnkey entertainment services.
+                        </p>
+                    </div>
+
+                    <div class="pt-6 mt-6 border-t border-white/10 text-xs text-zinc-400 font-mono flex items-center gap-2 relative z-10">
+                        <i class="fa-solid fa-tv text-crimson"></i>
+                        <span>80+ Reality Shows & Kuku TV Series</span>
+                    </div>
+
+                    <div class="absolute -right-10 -bottom-10 w-32 h-32 bg-crimson/5 rounded-full blur-2xl pointer-events-none group-hover:bg-crimson/15 transition-all"></div>
+                </div>
+
+                <!-- House 2: Mango Tree Entertainment -->
+                <div class="glass-panel glass-panel-hover p-8 rounded-3xl flex flex-col justify-between border border-white/10 relative overflow-hidden group reveal-on-scroll">
+                    <div class="space-y-4 relative z-10">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[11px] font-mono uppercase tracking-wider text-amber-400 font-bold bg-amber-400/10 border border-amber-400/20 px-3 py-1 rounded-full">
+                                Feature Films
+                            </span>
+                            <span class="text-zinc-500 text-xs font-mono">02</span>
+                        </div>
+                        <h3 class="text-2xl font-black text-white tracking-tight group-hover:text-amber-400 transition-colors">
+                            MangoTree Entertainment
+                        </h3>
+                        <p class="text-xs font-mono uppercase tracking-widest text-zinc-400">
+                            Feature Films
+                        </p>
+                        <p class="text-xs sm:text-sm text-zinc-300 leading-relaxed font-light">
+                            Spearheads independent international feature film co-productions, high-screen-value theatrical cinema, and multi-country shoots across global locations.
+                        </p>
+                    </div>
+
+                    <div class="pt-6 mt-6 border-t border-white/10 text-xs text-zinc-400 font-mono flex items-center gap-2 relative z-10">
+                        <i class="fa-solid fa-film text-amber-400"></i>
+                        <span>Love in Vietnam • Bombay Stories</span>
+                    </div>
+
+                    <div class="absolute -right-10 -bottom-10 w-32 h-32 bg-amber-500/5 rounded-full blur-2xl pointer-events-none group-hover:bg-amber-500/15 transition-all"></div>
+                </div>
+
+                <!-- House 3: Vyom Verse Films -->
+                <div class="glass-panel glass-panel-hover p-8 rounded-3xl flex flex-col justify-between border border-white/10 relative overflow-hidden group reveal-on-scroll">
+                    <div class="space-y-4 relative z-10">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[11px] font-mono uppercase tracking-wider text-sky-400 font-bold bg-sky-400/10 border border-sky-400/20 px-3 py-1 rounded-full">
+                                Digital & OTT
+                            </span>
+                            <span class="text-zinc-500 text-xs font-mono">03</span>
+                        </div>
+                        <h3 class="text-2xl font-black text-white tracking-tight group-hover:text-sky-400 transition-colors">
+                            Vyom Verse
+                        </h3>
+                        <p class="text-xs font-mono uppercase tracking-widest text-zinc-400">
+                           Micro-drama and short-format content.
+                        </p>
+                        <p class="text-xs sm:text-sm text-zinc-300 leading-relaxed font-light">
+                            Dedicated to high-velocity micro-dramas, bite-sized vertical storytelling, and snackable cinema engineered specifically for mobile-first audiences.
+                        </p>
+                    </div>
+
+                    <div class="pt-6 mt-6 border-t border-white/10 flex items-center justify-between relative z-10">
+                        <a href="https://vyomversfilms.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-mono text-sky-400 hover:text-white transition-colors">
+                            <span>vyomversfilms.com</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        </a>
+                        <span class="text-[10px] font-mono text-zinc-500 uppercase">Official Portal</span>
+                    </div>
+
+                    <div class="absolute -right-10 -bottom-10 w-32 h-32 bg-sky-500/5 rounded-full blur-2xl pointer-events-none group-hover:bg-sky-500/15 transition-all"></div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Section 4: Selected Works & Broadcast Hits (Centered Header & Controls Below) -->
+    <section id="works" class="py-24 z-10 relative overflow-hidden border-b border-white/5 bg-obsidian">
+        <div class="max-w-7xl mx-auto px-5 sm:px-8 space-y-10">
+            
+            <!-- Centered Header Block -->
+            <div class="max-w-3xl mx-auto text-center space-y-4 pb-4 border-b border-white/5 reveal-on-scroll">
+                <span class="text-xs font-mono uppercase tracking-[4px] text-crimson font-bold block">
+                    04 / MARQUEE CREDENTIALS
+                </span>
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+                    Selected Works & Broadcast Hits
+                </h2>
+                <p class="text-zinc-400 text-sm">
+                    Swipe horizontally or use the controls below to explore the productions.
+                </p>
+            </div>
+
+            <!-- Dynamic Category Filter Tabs (Centered) -->
+            <div class="flex items-center justify-center gap-2 overflow-x-auto no-scrollbar py-1 reveal-on-scroll">
+                <button onclick="filterShelf('all', this)" class="shelf-filter-btn px-4 py-2 rounded-full text-xs font-mono uppercase tracking-wider transition-colors bg-crimson text-white cursor-pointer">All Works</button>
+                <button onclick="filterShelf('film', this)" class="shelf-filter-btn px-4 py-2 rounded-full text-xs font-mono uppercase tracking-wider transition-colors bg-white/5 text-zinc-400 hover:text-white cursor-pointer">Feature Films</button>
+                <button onclick="filterShelf('ott', this)" class="shelf-filter-btn px-4 py-2 rounded-full text-xs font-mono uppercase tracking-wider transition-colors bg-white/5 text-zinc-400 hover:text-white cursor-pointer">Micro-Dramas & OTT</button>
+                <button onclick="filterShelf('tv', this)" class="shelf-filter-btn px-4 py-2 rounded-full text-xs font-mono uppercase tracking-wider transition-colors bg-white/5 text-zinc-400 hover:text-white cursor-pointer">Television Realities</button>
+            </div>
+
+            <!-- Horizontal Shelf Track (10 Verified Posters in images/works/) -->
+            <div id="shelfContainer" class="flex items-stretch gap-6 overflow-x-auto no-scrollbar pt-4 pb-4 snap-x snap-mandatory scroll-smooth reveal-on-scroll">
+                
+                <!-- 1. The Great Indian Kapil Show (OTT #1) -->
+                <div class="shelf-item snap-start shrink-0 w-[240px] sm:w-[270px] group cursor-pointer" data-category="ott" onclick="openModalById('kapil_ott')">
+                    <div class="relative w-full aspect-[2/3] overflow-hidden rounded-2xl bg-surface-light group-hover:shadow-[0_20px_50px_rgba(217,4,41,0.25)] transition-all duration-500 border border-white/10 group-hover:border-crimson/70">
+                        <img src="images/works/great-indian-kapil-show.jpg" alt="The Great Indian Kapil Show" class="w-full h-full object-cover filter brightness-90 contrast-110 group-hover:scale-105 group-hover:brightness-100 transition-all duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/30 to-transparent"></div>
+                        <div class="absolute top-0 left-0 right-0 h-[2px] bg-crimson opacity-0 group-hover:opacity-100 transition-opacity duration-500 shadow-[0_0_12px_#d90429]"></div>
+                        <div class="absolute bottom-4 left-4 right-4 z-20 space-y-1">
+                            <div class="flex items-center gap-2">
+                                <span class="text-[10px] font-mono text-crimson font-bold uppercase tracking-widest">Floor Lead</span>
+                                <span class="text-zinc-500 text-[10px] font-mono">•</span>
+                                <span class="text-[10px] font-mono text-zinc-300">Netflix Original</span>
+                            </div>
+                            <h4 class="text-lg font-bold text-white tracking-tight group-hover:text-crimson-bright transition-colors">
+                                The Great Indian Kapil Show
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="mt-3.5 space-y-1">
+                        <span class="text-[10px] font-mono text-zinc-400 block uppercase tracking-wider">Netflix • Global Streaming OTT</span>
+                        <h4 class="text-base font-bold text-white group-hover:text-crimson-bright transition-colors">The Great Indian Kapil Show</h4>
+                    </div>
+                </div>
+
+                <!-- 2. Love in Vietnam (Feature Film) -->
+                <div class="shelf-item snap-start shrink-0 w-[240px] sm:w-[270px] group cursor-pointer" data-category="film" onclick="openModalById('liv')">
+                    <div class="relative w-full aspect-[2/3] overflow-hidden rounded-2xl bg-surface-light group-hover:shadow-[0_20px_50px_rgba(217,4,41,0.25)] transition-all duration-500 border border-white/10 group-hover:border-crimson/70">
+                        <img src="images/works/love-in-vietnam.jpg" alt="Love in Vietnam" class="w-full h-full object-cover filter brightness-90 contrast-110 group-hover:scale-105 group-hover:brightness-100 transition-all duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/30 to-transparent"></div>
+                        <div class="absolute top-0 left-0 right-0 h-[2px] bg-crimson opacity-0 group-hover:opacity-100 transition-opacity duration-500 shadow-[0_0_12px_#d90429]"></div>
+                        <div class="absolute bottom-4 left-4 right-4 z-20 space-y-1">
+                            <div class="flex items-center gap-2">
+                                <span class="text-[10px] font-mono text-crimson font-bold uppercase tracking-widest">Producer</span>
+                                <span class="text-zinc-500 text-[10px] font-mono">•</span>
+                                <span class="text-[10px] font-mono text-zinc-300">JioHotstar</span>
+                            </div>
+                            <h4 class="text-lg font-bold text-white tracking-tight group-hover:text-crimson-bright transition-colors">
+                                Love in Vietnam
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="mt-3.5 space-y-1">
+                        <span class="text-[10px] font-mono text-zinc-400 block uppercase tracking-wider">JioHotstar • Feature Film</span>
+                        <h4 class="text-base font-bold text-white group-hover:text-crimson-bright transition-colors">Love in Vietnam</h4>
+                    </div>
+                </div>
+
+                <!-- 3. Bombay Stories (Feature Film) -->
+                <div class="shelf-item snap-start shrink-0 w-[240px] sm:w-[270px] group cursor-pointer" data-category="film" onclick="openModalById('bombay')">
+                    <div class="relative w-full aspect-[2/3] overflow-hidden rounded-2xl bg-surface-light group-hover:shadow-[0_20px_50px_rgba(217,4,41,0.25)] transition-all duration-500 border border-white/10 group-hover:border-crimson/70">
+                        <img src="images/works/bombay-stories.jpg" alt="Bombay Stories" class="w-full h-full object-cover filter brightness-90 contrast-110 group-hover:scale-105 group-hover:brightness-100 transition-all duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/30 to-transparent"></div>
+                        <div class="absolute top-0 left-0 right-0 h-[2px] bg-crimson opacity-0 group-hover:opacity-100 transition-opacity duration-500 shadow-[0_0_12px_#d90429]"></div>
+                        <div class="absolute bottom-4 left-4 right-4 z-20 space-y-1">
+                            <div class="flex items-center gap-2">
+                                <span class="text-[10px] font-mono text-crimson font-bold uppercase tracking-widest">Assoc. Producer</span>
+                                <span class="text-zinc-500 text-[10px] font-mono">•</span>
+                                <span class="text-[10px] font-mono text-zinc-300">JioHotstar</span>
+                            </div>
+                            <h4 class="text-lg font-bold text-white tracking-tight group-hover:text-crimson-bright transition-colors">
+                                Bombay Stories
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="mt-3.5 space-y-1">
+                        <span class="text-[10px] font-mono text-zinc-300 block uppercase">JioHotstar • Feature Film</span>
+                        <h4 class="text-base font-bold text-white group-hover:text-crimson-bright transition-colors">Bombay Stories</h4>
+                    </div>
+                </div>
+
+                <!-- 4. The Kapil Sharma Show (TV Broadcast) -->
+                <div class="shelf-item snap-start shrink-0 w-[240px] sm:w-[270px] group cursor-pointer" data-category="tv" onclick="openModalById('kapil')">
+                    <div class="relative w-full aspect-[2/3] overflow-hidden rounded-2xl bg-surface-light group-hover:shadow-[0_20px_50px_rgba(217,4,41,0.25)] transition-all duration-500 border border-white/10 group-hover:border-crimson/70">
+                        <img src="images/works/the-kapil-sharma-show.jpg" alt="The Kapil Sharma Show" class="w-full h-full object-cover filter brightness-90 contrast-110 group-hover:scale-105 group-hover:brightness-100 transition-all duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/30 to-transparent"></div>
+                        <div class="absolute top-0 left-0 right-0 h-[2px] bg-crimson opacity-0 group-hover:opacity-100 transition-opacity duration-500 shadow-[0_0_12px_#d90429]"></div>
+                        <div class="absolute bottom-4 left-4 right-4 z-20 space-y-1">
+                            <div class="flex items-center gap-2">
+                                <span class="text-[10px] font-mono text-crimson font-bold uppercase tracking-widest">Floor Mgmt</span>
+                                <span class="text-zinc-500 text-[10px] font-mono">•</span>
+                                <span class="text-[10px] font-mono text-zinc-300">Sony Broadcast</span>
+                            </div>
+                            <h4 class="text-lg font-bold text-white tracking-tight group-hover:text-crimson-bright transition-colors">
+                                The Kapil Sharma Show
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="mt-3.5 space-y-1">
+                        <span class="text-[10px] font-mono text-zinc-400 block uppercase tracking-wider">Sony Entertainment Broadcast</span>
+                        <h4 class="text-base font-bold text-white group-hover:text-crimson-bright transition-colors">The Kapil Sharma Show</h4>
+                    </div>
+                </div>
+
+                <!-- 5. Bigg Boss Franchise (TV Broadcast) -->
+                <div class="shelf-item snap-start shrink-0 w-[240px] sm:w-[270px] group cursor-pointer" data-category="tv" onclick="openModalById('biggboss')">
+                    <div class="relative w-full aspect-[2/3] overflow-hidden rounded-2xl bg-surface-light group-hover:shadow-[0_20px_50px_rgba(217,4,41,0.25)] transition-all duration-500 border border-white/10 group-hover:border-crimson/70">
+                        <img src="images/works/Bigg-boss.jpg" alt="Bigg Boss" class="w-full h-full object-cover filter brightness-90 contrast-110 group-hover:scale-105 group-hover:brightness-100 transition-all duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/30 to-transparent"></div>
+                        <div class="absolute top-0 left-0 right-0 h-[2px] bg-crimson opacity-0 group-hover:opacity-100 transition-opacity duration-500 shadow-[0_0_12px_#d90429]"></div>
+                        <div class="absolute bottom-4 left-4 right-4 z-20 space-y-1">
+                            <div class="flex items-center gap-2">
+                                <span class="text-[10px] font-mono text-crimson font-bold uppercase tracking-widest">Floor Lead</span>
+                                <span class="text-zinc-500 text-[10px] font-mono">•</span>
+                                <span class="text-[10px] font-mono text-zinc-300">Colors / Jio</span>
+                            </div>
+                            <h4 class="text-lg font-bold text-white tracking-tight group-hover:text-crimson-bright transition-colors">
+                                Bigg Boss Franchise
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="mt-3.5 space-y-1">
+                        <span class="text-[10px] font-mono text-zinc-300 block uppercase">Colors / JioCinema</span>
+                        <h4 class="text-base font-bold text-white group-hover:text-crimson-bright transition-colors">Bigg Boss Franchise</h4>
+                    </div>
+                </div>
+
+                <!-- 6. India’s Got Talent (TV Broadcast) -->
+                <div class="shelf-item snap-start shrink-0 w-[240px] sm:w-[270px] group cursor-pointer" data-category="tv" onclick="openModalById('igt')">
+                    <div class="relative w-full aspect-[2/3] overflow-hidden rounded-2xl bg-surface-light group-hover:shadow-[0_20px_50px_rgba(217,4,41,0.25)] transition-all duration-500 border border-white/10 group-hover:border-crimson/70">
+                        <img src="images/works/indiasgot-talent.jpg" alt="India's Got Talent" class="w-full h-full object-cover filter brightness-90 contrast-110 group-hover:scale-105 group-hover:brightness-100 transition-all duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/30 to-transparent"></div>
+                        <div class="absolute top-0 left-0 right-0 h-[2px] bg-crimson opacity-0 group-hover:opacity-100 transition-opacity duration-500 shadow-[0_0_12px_#d90429]"></div>
+                        <div class="absolute bottom-4 left-4 right-4 z-20 space-y-1">
+                            <div class="flex items-center gap-2">
+                                <span class="text-[10px] font-mono text-crimson font-bold uppercase tracking-widest">Floor Mgmt</span>
+                                <span class="text-zinc-500 text-[10px] font-mono">•</span>
+                                <span class="text-[10px] font-mono text-zinc-300">Sony Entertainment</span>
+                            </div>
+                            <h4 class="text-lg font-bold text-white tracking-tight group-hover:text-crimson-bright transition-colors">
+                                India’s Got Talent
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="mt-3.5 space-y-1">
+                        <span class="text-[10px] font-mono text-zinc-300 block uppercase">Sony Entertainment</span>
+                        <h4 class="text-base font-bold text-white group-hover:text-crimson-bright transition-colors">India’s Got Talent</h4>
+                    </div>
+                </div>
+
+                <!-- 7. Battleground (Gaming Reality) -->
+                <div class="shelf-item snap-start shrink-0 w-[240px] sm:w-[270px] group cursor-pointer" data-category="tv" onclick="openModalById('battleground')">
+                    <div class="relative w-full aspect-[2/3] overflow-hidden rounded-2xl bg-surface-light group-hover:shadow-[0_20px_50px_rgba(217,4,41,0.25)] transition-all duration-500 border border-white/10 group-hover:border-crimson/70">
+                        <img src="images/works/battleground-amazon.jpg" alt="Battleground" class="w-full h-full object-cover filter brightness-90 contrast-110 group-hover:scale-105 group-hover:brightness-100 transition-all duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/30 to-transparent"></div>
+                        <div class="absolute top-0 left-0 right-0 h-[2px] bg-crimson opacity-0 group-hover:opacity-100 transition-opacity duration-500 shadow-[0_0_12px_#d90429]"></div>
+                        <div class="absolute bottom-4 left-4 right-4 z-20 space-y-1">
+                            <div class="flex items-center gap-2">
+                                <span class="text-[10px] font-mono text-crimson font-bold uppercase tracking-widest">Floor Lead</span>
+                                <span class="text-zinc-500 text-[10px] font-mono">•</span>
+                                <span class="text-[10px] font-mono text-zinc-300">Amazon / MX</span>
+                            </div>
+                            <h4 class="text-lg font-bold text-white tracking-tight group-hover:text-crimson-bright transition-colors">
+                                Battleground
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="mt-3.5 space-y-1">
+                        <span class="text-[10px] font-mono text-zinc-400 block uppercase tracking-wider">Gaming Reality Broadcast</span>
+                        <h4 class="text-base font-bold text-white group-hover:text-crimson-bright transition-colors">Battleground</h4>
+                    </div>
+                </div>
+
+                <!-- 8. Pyar Reset (OTT Micro-Drama) -->
+                <div class="shelf-item snap-start shrink-0 w-[240px] sm:w-[270px] group cursor-pointer" data-category="ott" onclick="openModalById('pyaarreset')">
+                    <div class="relative w-full aspect-[2/3] overflow-hidden rounded-2xl bg-surface-light group-hover:shadow-[0_20px_50px_rgba(217,4,41,0.25)] transition-all duration-500 border border-white/10 group-hover:border-crimson/70">
+                        <img src="images/works/pyar-reset.jpg" alt="Pyar Reset" class="w-full h-full object-cover filter brightness-90 contrast-110 group-hover:scale-105 group-hover:brightness-100 transition-all duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/30 to-transparent"></div>
+                        <div class="absolute top-0 left-0 right-0 h-[2px] bg-crimson opacity-0 group-hover:opacity-100 transition-opacity duration-500 shadow-[0_0_12px_#d90429]"></div>
+                        <div class="absolute bottom-4 left-4 right-4 z-20 space-y-1">
+                            <div class="flex items-center gap-2">
+                                <span class="text-[10px] font-mono text-crimson font-bold uppercase tracking-widest">Producer</span>
+                                <span class="text-zinc-500 text-[10px] font-mono">•</span>
+                                <span class="text-[10px] font-mono text-zinc-300">MX Fatafat</span>
+                            </div>
+                            <h4 class="text-lg font-bold text-white tracking-tight group-hover:text-crimson-bright transition-colors">
+                                Pyar Reset
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="mt-3.5 space-y-1">
+                        <span class="text-[10px] font-mono text-zinc-300 block uppercase">MX Fatafat • Digital Series</span>
+                        <h4 class="text-base font-bold text-white group-hover:text-crimson-bright transition-colors">Pyar Reset</h4>
+                    </div>
+                </div>
+
+                <!-- 9. Love Beneath Paris Skies (OTT Micro-Drama) -->
+                <div class="shelf-item snap-start shrink-0 w-[240px] sm:w-[270px] group cursor-pointer" data-category="ott" onclick="openModalById('paris')">
+                    <div class="relative w-full aspect-[2/3] overflow-hidden rounded-2xl bg-surface-light group-hover:shadow-[0_20px_50px_rgba(217,4,41,0.25)] transition-all duration-500 border border-white/10 group-hover:border-crimson/70">
+                        <img src="images/works/love-beneath-paris-skies.jpg" alt="Love Beneath Paris Skies" class="w-full h-full object-cover filter brightness-90 contrast-110 group-hover:scale-105 group-hover:brightness-100 transition-all duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/30 to-transparent"></div>
+                        <div class="absolute top-0 left-0 right-0 h-[2px] bg-crimson opacity-0 group-hover:opacity-100 transition-opacity duration-500 shadow-[0_0_12px_#d90429]"></div>
+                        <div class="absolute bottom-4 left-4 right-4 z-20 space-y-1">
+                            <div class="flex items-center gap-2">
+                                <span class="text-[10px] font-mono text-crimson font-bold uppercase tracking-widest">Producer</span>
+                                <span class="text-zinc-500 text-[10px] font-mono">•</span>
+                                <span class="text-[10px] font-mono text-zinc-300">Kuku TV</span>
+                            </div>
+                            <h4 class="text-lg font-bold text-white tracking-tight group-hover:text-crimson-bright transition-colors">
+                                Love Beneath Paris Skies
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="mt-3.5 space-y-1">
+                        <span class="text-[10px] font-mono text-zinc-300 block uppercase">Kuku TV • Paris, France</span>
+                        <h4 class="text-base font-bold text-white group-hover:text-crimson-bright transition-colors">Love Beneath Paris Skies</h4>
+                    </div>
+                </div>
+
+                <!-- 10. Found Real Love in Spain (OTT Micro-Drama) -->
+                <div class="shelf-item snap-start shrink-0 w-[240px] sm:w-[270px] group cursor-pointer" data-category="ott" onclick="openModalById('spain')">
+                    <div class="relative w-full aspect-[2/3] overflow-hidden rounded-2xl bg-surface-light group-hover:shadow-[0_20px_50px_rgba(217,4,41,0.25)] transition-all duration-500 border border-white/10 group-hover:border-crimson/70">
+                        <img src="images/works/love-in-spain.jpg" alt="Found Real Love in Spain" class="w-full h-full object-cover filter brightness-90 contrast-110 group-hover:scale-105 group-hover:brightness-100 transition-all duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/30 to-transparent"></div>
+                        <div class="absolute top-0 left-0 right-0 h-[2px] bg-crimson opacity-0 group-hover:opacity-100 transition-opacity duration-500 shadow-[0_0_12px_#d90429]"></div>
+                        <div class="absolute bottom-4 left-4 right-4 z-20 space-y-1">
+                            <div class="flex items-center gap-2">
+                                <span class="text-[10px] font-mono text-crimson font-bold uppercase tracking-widest">Producer</span>
+                                <span class="text-zinc-500 text-[10px] font-mono">•</span>
+                                <span class="text-[10px] font-mono text-zinc-300">Kuku TV</span>
+                            </div>
+                            <h4 class="text-lg font-bold text-white tracking-tight group-hover:text-crimson-bright transition-colors">
+                                Found Real Love in Spain
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="mt-3.5 space-y-1">
+                        <span class="text-[10px] font-mono text-zinc-300 block uppercase">Kuku TV • Spain</span>
+                        <h4 class="text-base font-bold text-white group-hover:text-crimson-bright transition-colors">Found Real Love in Spain</h4>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Left / Right Navigation Buttons (Centered Below Slideshow) -->
+            <div class="flex items-center justify-center gap-4 pt-2 reveal-on-scroll">
+                <button onclick="scrollShelf('left')" class="w-12 h-12 rounded-full border border-white/15 bg-white/5 hover:border-crimson hover:bg-crimson hover:text-white flex items-center justify-center text-zinc-300 transition-all text-sm active:scale-90 cursor-pointer shadow-lg" aria-label="Scroll Shelf Left">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+                <button onclick="scrollShelf('right')" class="w-12 h-12 rounded-full border border-white/15 bg-white/5 hover:border-crimson hover:bg-crimson hover:text-white flex items-center justify-center text-zinc-300 transition-all text-sm active:scale-90 cursor-pointer shadow-lg" aria-label="Scroll Shelf Right">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contained Brand & Studio Ticker (Full Vibrant Brand Colors) -->
+    <section id="partners" class="py-20 z-10 relative border-b border-white/5 bg-surface/30 reveal-on-scroll">
+        <div class="max-w-7xl mx-auto px-5 sm:px-8 space-y-10">
+            
+            <div class="text-center space-y-2">
+                <span class="text-xs font-mono uppercase tracking-widest text-crimson font-bold block">
+                    05 / COLLABORATIONS
+                </span>
+                <h3 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+                    Studios, Networks & Platforms We’ve Partnered With
+                </h3>
+            </div>
+
+            <div class="relative w-full overflow-hidden rounded-2xl space-y-4">
+                <!-- Fade Edges -->
+                <div class="absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-[#08080a] via-[#08080a]/80 to-transparent z-20 pointer-events-none"></div>
+                <div class="absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-[#08080a] via-[#08080a]/80 to-transparent z-20 pointer-events-none"></div>
+
+                <!-- ROW 1: 10 Production Studios & Banners (Scrolling Left) -->
+                <div class="flex overflow-hidden">
+                    <div class="marquee-track-left">
+                        <div class="flex items-center shrink-0">
+                            <!-- 1. Banijay Asia -->
+                            <div class="h-16 w-40 sm:w-44 mx-1.5 rounded-xl marquee-card flex items-center justify-center p-3 group hover:border-crimson/50 transition-all shrink-0">
+                                <img src="images/brands/banijay.svg" alt="Banijay Asia" class="max-h-7 w-auto object-contain opacity-95 group-hover:opacity-100 group-hover:scale-105 transition-all">
+                            </div>
+                            <!-- 2. Endemol Shine -->
+                            <div class="h-16 w-40 sm:w-44 mx-1.5 rounded-xl marquee-card flex items-center justify-center p-3 group hover:border-crimson/50 transition-all shrink-0">
+                                <img src="images/brands/endemol.png" alt="Endemol" class="max-h-7 w-auto object-contain opacity-95 group-hover:opacity-100 group-hover:scale-105 transition-all">
+                            </div>
+                            <!-- 3. SKTV -->
+                            <div class="h-16 w-40 sm:w-44 mx-1.5 rounded-xl marquee-card flex items-center justify-center p-3 group hover:border-crimson/50 transition-all shrink-0">
+                                <img src="images/brands/sktv.png" alt="SKTV" class="max-h-7 w-auto object-contain opacity-95 group-hover:opacity-100 group-hover:scale-105 transition-all">
+                            </div>
+                            <!-- 4. K9 Production -->
+                            <div class="h-16 w-40 sm:w-44 mx-1.5 rounded-xl marquee-card flex items-center justify-center p-3 group hover:border-crimson/50 transition-all shrink-0">
+                                <img src="images/brands/k9%20production.png" alt="K9 Production" class="max-h-7 w-auto object-contain opacity-95 group-hover:opacity-100 group-hover:scale-105 transition-all">
+                            </div>
+                            <!-- 5. Optimystix -->
+                            <div class="h-16 w-40 sm:w-44 mx-1.5 rounded-xl marquee-card flex items-center justify-center p-3 group hover:border-crimson/50 transition-all shrink-0">
+                                <img src="images/brands/optimystix.png" alt="Optimystix" class="max-h-7 w-auto object-contain opacity-95 group-hover:opacity-100 group-hover:scale-105 transition-all">
+                            </div>
+                            <!-- 6. Frames -->
+                            <div class="h-16 w-40 sm:w-44 mx-1.5 rounded-xl marquee-card flex items-center justify-center p-3 group hover:border-crimson/50 transition-all shrink-0">
+                                <img src="images/brands/frames.png" alt="Frames Production" class="max-h-7 w-auto object-contain opacity-95 group-hover:opacity-100 group-hover:scale-105 transition-all">
+                            </div>
+                            <!-- 7. Colosceum -->
+                            <div class="h-16 w-40 sm:w-44 mx-1.5 rounded-xl marquee-card flex items-center justify-center p-3 group hover:border-crimson/50 transition-all shrink-0">
+                                <img src="images/brands/colosceum.png" alt="Colosceum" class="max-h-7 w-auto object-contain opacity-95 group-hover:opacity-100 group-hover:scale-105 transition-all">
+                            </div>
+                            <!-- 8. Greymatter -->
+                            <div class="h-16 w-40 sm:w-44 mx-1.5 rounded-xl marquee-card flex items-center justify-center p-3 group hover:border-crimson/50 transition-all shrink-0">
+                                <img src="images/brands/greymatter.png" alt="Greymatter" class="max-h-7 w-auto object-contain opacity-95 group-hover:opacity-100 group-hover:scale-105 transition-all">
+                            </div>
+                            <!-- 9. SOL Production -->
+                            <div class="h-16 w-40 sm:w-44 mx-1.5 rounded-xl marquee-card flex items-center justify-center p-3 group hover:border-crimson/50 transition-all shrink-0">
+                                <img src="images/brands/sol.png" alt="SOL Production" class="max-h-7 w-auto object-contain opacity-95 group-hover:opacity-100 group-hover:scale-105 transition-all">
+                            </div>
+                            <!-- 10. Rusk Media -->
+                            <div class="h-16 w-40 sm:w-44 mx-1.5 rounded-xl marquee-card flex items-center justify-center p-3 group hover:border-crimson/50 transition-all shrink-0">
+                                <img src="images/brands/ruskmedia.png" alt="Rusk Media" class="max-h-7 w-auto object-contain opacity-95 group-hover:opacity-100 group-hover:scale-105 transition-all">
+                            </div>
+                        </div>
+
+                        <!-- Duplicate Loop for Infinite Scroll -->
+                        <div class="flex items-center shrink-0" aria-hidden="true">
+                            <div class="h-16 w-40 sm:w-44 mx-1.5 rounded-xl marquee-card flex items-center justify-center p-3 group hover:border-crimson/50 transition-all shrink-0">
+                                <img src="images/brands/banijay.svg" alt="Banijay Asia" class="max-h-7 w-auto object-contain opacity-95 group-hover:opacity-100 group-hover:scale-105 transition-all">
+                            </div>
+                            <div class="h-16 w-40 sm:w-44 mx-1.5 rounded-xl marquee-card flex items-center justify-center p-3 group hover:border-crimson/50 transition-all shrink-0">
+                                <img src="images/brands/endemol.png" alt="Endemol" class="max-h-7 w-auto object-contain opacity-95 group-hover:opacity-100 group-hover:scale-105 transition-all">
+                            </div>
+                            <div class="h-16 w-40 sm:w-44 mx-1.5 rounded-xl marquee-card flex items-center justify-center p-3 group hover:border-crimson/50 transition-all shrink-0">
+                                <img src="images/brands/sktv.png" alt="SKTV" class="max-h-7 w-auto object-contain opacity-95 group-hover:opacity-100 group-hover:scale-105 transition-all">
+                            </div>
+                            <div class="h-16 w-40 sm:w-44 mx-1.5 rounded-xl marquee-card flex items-center justify-center p-3 group hover:border-crimson/50 transition-all shrink-0">
+                                <img src="images/brands/k9%20production.png" alt="K9 Production" class="max-h-7 w-auto object-contain opacity-95 group-hover:opacity-100 group-hover:scale-105 transition-all">
+                            </div>
+                            <div class="h-16 w-40 sm:w-44 mx-1.5 rounded-xl marquee-card flex items-center justify-center p-3 group hover:border-crimson/50 transition-all shrink-0">
+                                <img src="images/brands/optimystix.png" alt="Optimystix" class="max-h-7 w-auto object-contain opacity-95 group-hover:opacity-100 group-hover:scale-105 transition-all">
+                            </div>
+                            <div class="h-16 w-40 sm:w-44 mx-1.5 rounded-xl marquee-card flex items-center justify-center p-3 group hover:border-crimson/50 transition-all shrink-0">
+                                <img src="images/brands/frames.png" alt="Frames Production" class="max-h-7 w-auto object-contain opacity-95 group-hover:opacity-100 group-hover:scale-105 transition-all">
+                            </div>
+                            <div class="h-16 w-40 sm:w-44 mx-1.5 rounded-xl marquee-card flex items-center justify-center p-3 group hover:border-crimson/50 transition-all shrink-0">
+                                <img src="images/brands/colosceum.png" alt="Colosceum" class="max-h-7 w-auto object-contain opacity-95 group-hover:opacity-100 group-hover:scale-105 transition-all">
+                            </div>
+                            <div class="h-16 w-40 sm:w-44 mx-1.5 rounded-xl marquee-card flex items-center justify-center p-3 group hover:border-crimson/50 transition-all shrink-0">
+                                <img src="images/brands/greymatter.png" alt="Greymatter" class="max-h-7 w-auto object-contain opacity-95 group-hover:opacity-100 group-hover:scale-105 transition-all">
+                            </div>
+                            <div class="h-16 w-40 sm:w-44 mx-1.5 rounded-xl marquee-card flex items-center justify-center p-3 group hover:border-crimson/50 transition-all shrink-0">
+                                <img src="images/brands/sol.png" alt="SOL Production" class="max-h-7 w-auto object-contain opacity-95 group-hover:opacity-100 group-hover:scale-105 transition-all">
+                            </div>
+                            <div class="h-16 w-40 sm:w-44 mx-1.5 rounded-xl marquee-card flex items-center justify-center p-3 group hover:border-crimson/50 transition-all shrink-0">
+                                <img src="images/brands/ruskmedia.png" alt="Rusk Media" class="max-h-7 w-auto object-contain opacity-95 group-hover:opacity-100 group-hover:scale-105 transition-all">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ROW 2: 10 Networks, Broadcasters & Platforms (Scrolling Right) -->
+                <div class="flex overflow-hidden">
+                    <div class="marquee-track-right">
+                        <div class="flex items-center shrink-0">
+                            <!-- 1. Sony TV -->
+                            <div class="h-16 w-40 sm:w-44 mx-1.5 rounded-xl marquee-card flex items-center justify-center p-3 group hover:border-crimson/50 transition-all shrink-0">
+                                <img src="images/brands/SET%20India%20logo.svg" alt="Sony Entertainment Television" class="max-h-7 w-auto object-contain opacity-95 group-hover:opacity-100 group-hover:scale-105 transition-all">
+                            </div>
+                            <!-- 2. Colors TV -->
+                            <div class="h-16 w-40 sm:w-44 mx-1.5 rounded-xl marquee-card flex items-center justify-center p-3 group hover:border-crimson/50 transition-all shrink-0">
+                                <img src="images/brands/Colors_TV_logo.svg" alt="Colors TV" class="max-h-7 w-auto object-contain opacity-95 group-hover:opacity-100 group-hover:scale-105 transition-all">
+                            </div>
+                            <!-- 3. Sony LIV -->
+                            <div class="h-16 w-40 sm:w-44 mx-1.5 rounded-xl marquee-card flex items-center justify-center p-3 group hover:border-crimson/50 transition-all shrink-0">
+                                <img src="images/brands/SonyLIV_2020.png" alt="Sony LIV" class="max-h-7 w-auto object-contain opacity-95 group-hover:opacity-100 group-hover:scale-105 transition-all">
+                            </div>
+                            <!-- 4. Netflix -->
+                            <div class="h-16 w-40 sm:w-44 mx-1.5 rounded-xl marquee-card flex items-center justify-center p-3 group hover:border-crimson/50 transition-all shrink-0">
+                                <img src="images/brands/Netflix_2015_logo.svg" alt="Netflix" class="max-h-7 w-auto object-contain opacity-95 group-hover:opacity-100 group-hover:scale-105 transition-all">
+                            </div>
+                            <!-- 5. JioHotstar -->
+                            <div class="h-16 w-40 sm:w-44 mx-1.5 rounded-xl marquee-card flex items-center justify-center p-3 group hover:border-crimson/50 transition-all shrink-0">
+                                <img src="images/brands/jiohotstar.png" alt="JioHotstar" class="max-h-7 w-auto object-contain opacity-95 group-hover:opacity-100 group-hover:scale-105 transition-all">
+                            </div>
+                            <!-- 6. Kuku TV -->
+                            <div class="h-16 w-40 sm:w-44 mx-1.5 rounded-xl marquee-card flex items-center justify-center p-3 group hover:border-crimson/50 transition-all shrink-0">
+                                <img src="images/brands/kuku.jpeg" alt="Kuku TV" class="max-h-7 w-auto object-contain opacity-95 group-hover:opacity-100 group-hover:scale-105 transition-all">
+                            </div>
+                            <!-- 7. Amazon Prime Video -->
+                            <div class="h-16 w-40 sm:w-44 mx-1.5 rounded-xl marquee-card flex items-center justify-center p-3 group hover:border-crimson/50 transition-all shrink-0">
+                                <img src="images/brands/Prime%20Video%20Logo.svg" alt="Amazon Prime Video" class="max-h-7 w-auto object-contain opacity-95 group-hover:opacity-100 group-hover:scale-105 transition-all">
+                            </div>
+                            <!-- 8. MX Player -->
+                            <div class="h-16 w-40 sm:w-44 mx-1.5 rounded-xl marquee-card flex items-center justify-center p-3 group hover:border-crimson/50 transition-all shrink-0">
+                                <img src="images/brands/MX_Player_logo.svg" alt="MX Player" class="max-h-7 w-auto object-contain opacity-95 group-hover:opacity-100 group-hover:scale-105 transition-all">
+                            </div>
+                            <!-- 9. Zee Studios -->
+                            <div class="h-16 w-40 sm:w-44 mx-1.5 rounded-xl marquee-card flex items-center justify-center p-3 group hover:border-crimson/50 transition-all shrink-0">
+                                <img src="images/brands/Zee_Studios_2025.svg" alt="Zee Studios" class="max-h-7 w-auto object-contain opacity-95 group-hover:opacity-100 group-hover:scale-105 transition-all">
+                            </div>
+                            <!-- 10. BeingU Studios -->
+                            <div class="h-16 w-40 sm:w-44 mx-1.5 rounded-xl marquee-card flex items-center justify-center p-3 group hover:border-crimson/50 transition-all shrink-0">
+                                <img src="images/brands/beingustudios_logo.jpg" alt="BeingU Studios" class="max-h-7 w-auto object-contain opacity-95 group-hover:opacity-100 group-hover:scale-105 transition-all">
+                            </div>
+                        </div>
+
+                        <!-- Duplicate Loop for Infinite Scroll -->
+                        <div class="flex items-center shrink-0" aria-hidden="true">
+                            <div class="h-16 w-40 sm:w-44 mx-1.5 rounded-xl marquee-card flex items-center justify-center p-3 group hover:border-crimson/50 transition-all shrink-0">
+                                <img src="images/brands/SET%20India%20logo.svg" alt="Sony Entertainment Television" class="max-h-7 w-auto object-contain opacity-95 group-hover:opacity-100 group-hover:scale-105 transition-all">
+                            </div>
+                            <div class="h-16 w-40 sm:w-44 mx-1.5 rounded-xl marquee-card flex items-center justify-center p-3 group hover:border-crimson/50 transition-all shrink-0">
+                                <img src="images/brands/Colors_TV_logo.svg" alt="Colors TV" class="max-h-7 w-auto object-contain opacity-95 group-hover:opacity-100 group-hover:scale-105 transition-all">
+                            </div>
+                            <div class="h-16 w-40 sm:w-44 mx-1.5 rounded-xl marquee-card flex items-center justify-center p-3 group hover:border-crimson/50 transition-all shrink-0">
+                                <img src="images/brands/SonyLIV_2020.png" alt="Sony LIV" class="max-h-7 w-auto object-contain opacity-95 group-hover:opacity-100 group-hover:scale-105 transition-all">
+                            </div>
+                            <div class="h-16 w-40 sm:w-44 mx-1.5 rounded-xl marquee-card flex items-center justify-center p-3 group hover:border-crimson/50 transition-all shrink-0">
+                                <img src="images/brands/Netflix_2015_logo.svg" alt="Netflix" class="max-h-7 w-auto object-contain opacity-95 group-hover:opacity-100 group-hover:scale-105 transition-all">
+                            </div>
+                            <div class="h-16 w-40 sm:w-44 mx-1.5 rounded-xl marquee-card flex items-center justify-center p-3 group hover:border-crimson/50 transition-all shrink-0">
+                                <img src="images/brands/jiohotstar.png" alt="JioHotstar" class="max-h-7 w-auto object-contain opacity-95 group-hover:opacity-100 group-hover:scale-105 transition-all">
+                            </div>
+                            <div class="h-16 w-40 sm:w-44 mx-1.5 rounded-xl marquee-card flex items-center justify-center p-3 group hover:border-crimson/50 transition-all shrink-0">
+                                <img src="images/brands/kuku.jpeg" alt="Kuku TV" class="max-h-7 w-auto object-contain opacity-95 group-hover:opacity-100 group-hover:scale-105 transition-all">
+                            </div>
+                            <div class="h-16 w-40 sm:w-44 mx-1.5 rounded-xl marquee-card flex items-center justify-center p-3 group hover:border-crimson/50 transition-all shrink-0">
+                                <img src="images/brands/Prime%20Video%20Logo.svg" alt="Amazon Prime Video" class="max-h-7 w-auto object-contain opacity-95 group-hover:opacity-100 group-hover:scale-105 transition-all">
+                            </div>
+                            <div class="h-16 w-40 sm:w-44 mx-1.5 rounded-xl marquee-card flex items-center justify-center p-3 group hover:border-crimson/50 transition-all shrink-0">
+                                <img src="images/brands/MX_Player_logo.svg" alt="MX Player" class="max-h-7 w-auto object-contain opacity-95 group-hover:opacity-100 group-hover:scale-105 transition-all">
+                            </div>
+                            <div class="h-16 w-40 sm:w-44 mx-1.5 rounded-xl marquee-card flex items-center justify-center p-3 group hover:border-crimson/50 transition-all shrink-0">
+                                <img src="images/brands/Zee_Studios_2025.svg" alt="Zee Studios" class="max-h-7 w-auto object-contain opacity-95 group-hover:opacity-100 group-hover:scale-105 transition-all">
+                            </div>
+                            <div class="h-16 w-40 sm:w-44 mx-1.5 rounded-xl marquee-card flex items-center justify-center p-3 group hover:border-crimson/50 transition-all shrink-0">
+                                <img src="images/brands/beingustudios_logo.jpg" alt="BeingU Studios" class="max-h-7 w-auto object-contain opacity-95 group-hover:opacity-100 group-hover:scale-105 transition-all">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Section 5: Interactive Services Matrix -->
+    <section id="services" class="py-24 z-10 relative px-5 sm:px-8 border-y border-white/5 bg-surface/20">
+        <div class="max-w-7xl mx-auto space-y-16">
+            
+           <!-- CENTERED HEADER: -->
+           <div class="max-w-3xl mx-auto text-center space-y-4 reveal-on-scroll">
+              <span class="text-xs font-mono uppercase tracking-widest text-crimson font-bold block">
+                 06 / WHAT WE DO
+              </span>
+              <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+                End-to-End Production Services
+              </h2>
+              <p class="text-zinc-400 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+               We handle everything from camera setups and live arena floors to celebrity coordination and feature films.
+             </p>
+           </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="glass-panel glass-panel-hover p-8 rounded-2xl space-y-4 reveal-on-scroll">
+                    <div class="text-crimson text-2xl"><i class="fa-solid fa-video"></i></div>
+                    <h3 class="text-xl font-bold text-white">Floor & Broadcast Management</h3>
+                    <p class="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+                        Operating under the high-pressure demands of televised broadcasting. Multi-camera switching protocols, live audience choreography, and real-time contingency response.
+                    </p>
+                </div>
+
+                <div class="glass-panel glass-panel-hover p-8 rounded-2xl space-y-4 reveal-on-scroll">
+                    <div class="text-crimson text-2xl"><i class="fa-solid fa-star"></i></div>
+                    <h3 class="text-xl font-bold text-white">Celebrity & Talent Management</h3>
+                    <p class="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+                        End-to-end artist coordination. Contract riders, green-room protocols, direct security escorts, and customized stage choreography across Bollywood and sports celebrities.
+                    </p>
+                </div>
+
+                <div class="glass-panel glass-panel-hover p-8 rounded-2xl space-y-4 reveal-on-scroll">
+                    <div class="text-crimson text-2xl"><i class="fa-solid fa-earth-americas"></i></div>
+                    <h3 class="text-xl font-bold text-white">International Film Co-Production</h3>
+                    <p class="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+                        We facilitate seamless international shoots from pre-production to on-ground execution, covering key locations across Europe (Paris, Cannes, Barcelona, Madrid), Vietnam, the Maldives, Dubai, and the broader Gulf region. Our end-to-end services include location research, permits, budgeting, scheduling, travel logistics, crew and equipment sourcing, and live shoot management—delivering tailored production plans aligned with your destination, schedule, creative brief, and budget.
+                    </p>
+                </div>
+
+                <div class="glass-panel glass-panel-hover p-8 rounded-2xl space-y-4 reveal-on-scroll">
+                    <div class="text-crimson text-2xl"><i class="fa-solid fa-bullhorn"></i></div>
+                    <h3 class="text-xl font-bold text-white">Brand & Influencer Activations</h3>
+                    <p class="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+                        Connecting luxury hospitality properties, fashion labels, and consumer brands with targeted talent for experiential marketing and high-engagement social media campaigns.
+                    </p>
+                </div>
+
+                <div class="glass-panel glass-panel-hover p-8 rounded-2xl space-y-4 reveal-on-scroll">
+                    <div class="text-crimson text-2xl"><i class="fa-solid fa-building-columns"></i></div>
+                    <h3 class="text-xl font-bold text-white">Corporate Summits & Galas</h3>
+                    <p class="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+                        Staging high-stakes annual general meetings, corporate award ceremonies, milestone galas, and immersive tech product reveals with cutting-edge AV design.
+                    </p>
+                </div>
+
+                <div class="glass-panel glass-panel-hover p-8 rounded-2xl space-y-4 reveal-on-scroll">
+                    <div class="text-crimson text-2xl"><i class="fa-solid fa-champagne-glasses"></i></div>
+                    <h3 class="text-xl font-bold text-white">Bespoke Destination Weddings</h3>
+                    <p class="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+                        Curating luxury weddings where grand hospitality meets cinematic staging. Flawless schedule execution, world-class artist bookings, and memory-making elegance.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Section 6: Contact & Multi-Office Hub (Color Inversion Theme) -->
+    <section id="contact" class="py-24 z-10 relative px-5 sm:px-8 bg-crimson border-t border-white/10">
+        <div class="max-w-7xl mx-auto space-y-16">
+            
+            <div class="text-center max-w-2xl mx-auto space-y-4 reveal-on-scroll">
+                <span class="text-xs font-mono uppercase tracking-widest text-white/90 font-bold block">07 / GET IN TOUCH</span>
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+                    Let’s Build Something Iconic.
+                </h2>
+                <p class="text-white/85 text-sm">
+                    Connect directly with our executive office for project commissions, television floor dates, and film co-productions.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+                
+                <!-- Left: Operational Bases & Direct Contact -->
+                <div class="lg:col-span-5 space-y-6 reveal-on-scroll">
+                    <h3 class="text-lg font-bold text-white">Operational Bases</h3>
+                    
+                    <div class="space-y-3">
+                        <!-- Mumbai HQ (Default active: Inverted White card with Crimson text) -->
+                         
+                        <div onclick="selectOffice('mumbai')" id="office-mumbai" class="office-card bg-crimson text-white hover:bg-white hover:text-crimson p-5 rounded-2xl border-2 border-white/25 hover:border-white cursor-pointer transition-all duration-300 shadow-md">
+                            <div class="flex items-center justify-between">
+                                <h4 class="font-bold text-base">Mumbai (Headquarters)</h4>
+                            </div>
+                            <p class="text-xs mt-2 leading-relaxed opacity-90">
+                                403, B-8, Millat Nagar, Andheri West, Mumbai, Maharashtra 400053
+                            </p>
+                        </div>
+
+                        <!-- New Delhi (Default: Red card -> Hover/Click: White with Crimson text) -->
+                        <div onclick="selectOffice('delhi')" id="office-delhi" class="office-card bg-crimson text-white hover:bg-white hover:text-crimson p-5 rounded-2xl border-2 border-white/25 hover:border-white cursor-pointer transition-all duration-300 shadow-md">
+                            <div class="flex items-center justify-between">
+                                <h4 class="font-bold text-base">New Delhi Office</h4>
+                            </div>
+                            <p class="text-xs mt-2 leading-relaxed opacity-90">
+                                A-126, Lane No. 5, Paryavaran Complex, New Delhi 110030
+                            </p>
+                        </div>
+
+                        <!-- Indore (Default: Red card -> Hover/Click: White with Crimson text) -->
+                        <div onclick="selectOffice('indore')" id="office-indore" class="office-card bg-crimson text-white hover:bg-white hover:text-crimson p-5 rounded-2xl border-2 border-white/25 hover:border-white cursor-pointer transition-all duration-300 shadow-md">
+                            <div class="flex items-center justify-between">
+                                <h4 class="font-bold text-base">Indore Operations</h4>
+                            </div>
+                            <p class="text-xs mt-2 leading-relaxed opacity-90">
+                                30-B Basant Vihar, Near Shanti Niketan Gate, Vijay Nagar, Indore, MP 452010
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Direct Contact Block (Default: Red card -> Hover/Focus: White with Crimson text) -->
+                    <div class="group bg-crimson text-white hover:bg-white hover:text-crimson p-6 rounded-2xl border-2 border-white/25 hover:border-white space-y-5 transition-all duration-300 shadow-xl">
+                        <div>
+                            <span class="text-[10px] uppercase font-mono tracking-wider block mb-1 opacity-80">Direct Production Desk</span>
+                            <a href="mailto:ufotv.in9@gmail.com" class="text-lg sm:text-xl font-extrabold hover:underline transition-colors block">
+                                ufotv.in9@gmail.com
+                            </a>
+                        </div>
+
+                        <div class="pt-3 border-t border-current/20 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                            <div>
+                                <span class="text-[10px] uppercase font-mono tracking-wider block mb-1 opacity-80">Direct Line</span>
+                                <a href="tel:+919967890499" class="text-lg sm:text-xl font-extrabold hover:underline transition-colors font-mono block">
+                                    +91 99678 90499
+                                </a>
+                            </div>
+
+                            <a href="https://wa.me/919967890499?text=Hi%20UFO%20Production%20Desk,%20we%20would%20like%20to%20discuss%20a%20project." 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/20 group-hover:bg-[#25D366] text-white group-hover:text-black border border-white/30 group-hover:border-transparent text-xs font-bold uppercase tracking-wider transition-all self-start sm:self-auto shadow-md">
+                                <i class="fa-brands fa-whatsapp text-sm"></i>
+                                <span>WhatsApp</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Form in Solid Black -->
+                <div class="lg:col-span-7 reveal-on-scroll">
+                    <form id="inquiryForm" onsubmit="handleInquirySubmit(event)" class="bg-black p-8 sm:p-10 rounded-3xl border border-white/15 space-y-6 shadow-2xl">
+                        <h3 class="text-xl font-bold text-white">For any enquiries</h3>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="space-y-1.5">
+                                <label class="text-xs font-mono uppercase tracking-wider text-zinc-300">Your Name *</label>
+                                <input type="text" id="formName" required placeholder="Sahil or Representative" class="w-full bg-[#111111] border border-white/20 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-white">
+                            </div>
+                            <div class="space-y-1.5">
+                                <label class="text-xs font-mono uppercase tracking-wider text-zinc-300">Email Address *</label>
+                                <input type="email" id="formEmail" required placeholder="producer@studio.com" class="w-full bg-[#111111] border border-white/20 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-white">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="space-y-1.5">
+                                <label class="text-xs font-mono uppercase tracking-wider text-zinc-300">Phone / WhatsApp</label>
+                                <input type="tel" id="formPhone" placeholder="+91 ..." class="w-full bg-[#111111] border border-white/20 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-white">
+                            </div>
+                            <div class="space-y-1.5">
+                                <label class="text-xs font-mono uppercase tracking-wider text-zinc-300">Inquiry Nature</label>
+                                <select id="formNature" class="w-full bg-[#111111] border border-white/20 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-white">
+                                    <option value="reality">Television Floor Management</option>
+                                    <option value="film">Film Co-Production & Financing</option>
+                                    <option value="arena">Live Concert / Arena Staging</option>
+                                    <option value="corporate">Brand Activation / Gala</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="space-y-1.5">
+                            <label class="text-xs font-mono uppercase tracking-wider text-zinc-300">Project Overview & Timeline</label>
+                            <textarea id="formMessage" rows="4" required placeholder="Tell us about the project scope, tentative shooting dates, and required floor presence..." class="w-full bg-[#111111] border border-white/20 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-white"></textarea>
+                        </div>
+
+                        <!-- Solid White Submit Button with Black Text & Plane Icon -->
+                        <button type="submit" class="w-full py-4 rounded-xl bg-white hover:bg-zinc-200 text-black font-extrabold text-sm uppercase tracking-wider transition-all shadow-xl shadow-black/50 flex items-center justify-center gap-3 cursor-pointer hover:scale-[1.01] active:scale-95">
+                            <i class="fa-solid fa-paper-plane text-xs text-black"></i>
+                            <span class="text-black"> Submit Now </span>
+                        </button>
+
+                        <div id="formSuccessAlert" class="hidden p-4 rounded-xl bg-green-500/20 border border-green-400/40 text-green-300 text-xs text-center font-mono">
+                            ✓ Inquiry formatted! Opening your default mail client with direct parameters...
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Global Footer -->
+    <footer class="border-t border-white/10 py-12 px-5 sm:px-8 bg-black/60 relative z-10 text-xs text-zinc-300">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+            
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-crimson/20 border border-crimson/40 flex items-center justify-center text-white font-mono font-bold text-sm">
+                    UFO
+                </div>
+                <div>
+                    <span class="text-white font-bold block text-sm">United Floor Organisation</span>
+                    <span class="text-[11px] text-zinc-300">Media, Broadcast & Feature Film Productions</span>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-6 text-sm text-zinc-400">
+                <a href="https://www.imdb.com/name/nm14185875/" target="_blank" rel="noopener noreferrer" class="hover:text-amber-400 transition-colors"><i class="fa-brands fa-imdb text-lg"></i></a>
+                <a href="https://www.instagram.com/ufotv.in/" target="_blank" rel="noopener noreferrer" class="hover:text-pink-500 transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.twitter.com/ufotvin/" target="_blank" rel="noopener noreferrer" class="hover:text-sky-400 transition-colors"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://www.facebook.com/ufotv.in/" target="_blank" rel="noopener noreferrer" class="hover:text-blue-500 transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.youtube.com/channel/UCS44T0CQksdyYLwAx7SAdDA" target="_blank" rel="noopener noreferrer" class="hover:text-red-500 transition-colors"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+
+            <div class="text-center md:text-right font-mono text-[11px]">
+                <div>© 2026 UFO. All rights reserved.</div>
+                <div class="text-zinc-300 mt-1">
+                    Made by <a href="https://shadans.com" target="_blank" rel="noopener noreferrer" class="text-white hover:text-crimson underline transition-colors">Shadan S.</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cinematic Interactive Modal Drawer for Selected Works -->
+    <div id="projectModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-xl transition-all duration-300" onclick="closeModalOnBackdrop(event)">
+        <div id="projectModalCard" class="glass-panel w-full max-w-3xl rounded-3xl overflow-hidden border border-white/20 shadow-2xl relative bg-obsidian z-10" onclick="event.stopPropagation()">
+            
+            <div class="relative h-64 sm:h-80 w-full overflow-hidden bg-surface-light">
+                <img id="modalCover" src="" alt="Project Backdrop" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/40 to-transparent"></div>
+                
+                <!-- Explicit Close Button -->
+                <button type="button" id="modalCloseBtn" onclick="closeModal(event)" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/70 border border-white/20 text-white flex items-center justify-center hover:bg-crimson transition-all text-sm z-50 cursor-pointer shadow-lg" aria-label="Close Project Modal">
+                    <i class="fa-solid fa-xmark pointer-events-none"></i>
+                </button>
+
+                <div class="absolute bottom-6 left-6 right-6 z-20 space-y-2">
+                    <div class="flex items-center gap-2">
+                        <span id="modalRoleBadge" class="px-2.5 py-0.5 rounded text-[11px] font-mono font-bold bg-crimson text-white uppercase tracking-wider">PRODUCER</span>
+                        <span id="modalCategory" class="text-xs font-mono text-zinc-300">Feature Film</span>
+                    </div>
+                    <h3 id="modalTitle" class="text-3xl sm:text-4xl font-extrabold text-white">Project Title</h3>
+                </div>
+            </div>
+
+            <div class="p-6 sm:p-8 space-y-6">
+                <div>
+                    <h5 class="text-xs font-mono uppercase tracking-wider text-zinc-400 mb-2">Production Overview</h5>
+                    <p id="modalSynopsis" class="text-sm text-zinc-300 leading-relaxed">
+                        Detailed synopsis and on-set responsibilities go here.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-2 border-t border-white/10 text-xs">
+                    <div>
+                        <span class="text-zinc-400 block font-mono">Platform / Network</span>
+                        <strong id="modalPlatform" class="text-white text-sm">JioHotstar</strong>
+                    </div>
+                    <div>
+                        <span class="text-zinc-400 block font-mono">Executive Credit</span>
+                        <strong id="modalCredit" class="text-white text-sm">Sahil Sheikh</strong>
+                    </div>
+                    <div class="col-span-2 sm:col-span-1">
+                        <span class="text-zinc-400 block font-mono">Production Region</span>
+                        <strong id="modalLocation" class="text-white text-sm">Vietnam & India</strong>
+                    </div>
+                </div>
+
+                <div class="pt-4 flex flex-wrap items-center justify-between gap-4 border-t border-white/10">
+                    <div class="flex items-center gap-2 text-xs text-zinc-300">
+                        <i class="fa-solid fa-shield-halved text-crimson"></i>
+                        <span>Verified Studio Filmography Record</span>
+                    </div>
+                    <a id="modalExternalLink" href="https://www.imdb.com/name/nm14185875/" target="_blank" rel="noopener noreferrer" class="px-6 py-2.5 rounded-xl bg-crimson hover:bg-crimson-bright text-white font-bold text-xs uppercase tracking-wider flex items-center gap-2 transition-all">
+                        <span>Open on IMDb</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Client-Side Scripts (Pure Browser Native, Zero Audio Dependencies) -->
+    <script>
+        // 1. Continuous Zoom & Statement Fade Controller
+        window.addEventListener('scroll', () => {
+            const logoLayer = document.getElementById('heroLogoLayer');
+            const kineticLogo = document.getElementById('kineticLogo');
+            const statementLayer = document.getElementById('heroStatementLayer');
+            const landingLayer = document.getElementById('heroLandingLayer');
+            const header = document.getElementById('mainHeader');
+            const hero = document.getElementById('hero');
+
+            if (!logoLayer || !kineticLogo || !statementLayer || !landingLayer || !hero) return;
+
+            const scrollY = window.scrollY;
+            const runway = hero.offsetHeight - window.innerHeight;
+            if (runway <= 0) return;
+
+            const p = Math.min(Math.max(scrollY / runway, 0), 1);
+
+            // 1. LOGO: Continuous Zoom In and smooth fade
+            if (p < 0.35) {
+                const subP = p / 0.35;
+                const scale = 1 + Math.pow(subP, 1.8) * 3.5;
+                kineticLogo.style.transform = `scale(${scale.toFixed(3)})`;
+                logoLayer.style.opacity = (1 - Math.pow(subP, 2)).toFixed(3);
+                logoLayer.style.display = 'flex';
+            } else {
+                logoLayer.style.opacity = '0';
+                logoLayer.style.display = 'none';
+            }
+
+            // 2. STATEMENT: Soft Emergence, Comfortable Hold, and Fade
+            if (p >= 0.25 && p <= 0.70) {
+                let stmtOpacity = 0;
+                if (p < 0.40) {
+                    stmtOpacity = (p - 0.25) / 0.15;
+                } else if (p >= 0.40 && p <= 0.58) {
+                    stmtOpacity = 1;
+                } else {
+                    stmtOpacity = 1 - (p - 0.58) / 0.12;
+                }
+                statementLayer.style.opacity = stmtOpacity.toFixed(3);
+                statementLayer.style.transform = `scale(${(0.96 + p * 0.06).toFixed(3)})`;
+            } else {
+                statementLayer.style.opacity = '0';
+            }
+
+            // 3. HOMEPAGE & HEADER: Clean Final Dissolve In
+            if (p >= 0.65) {
+                const homeP = Math.min((p - 0.65) / 0.25, 1);
+                landingLayer.style.opacity = homeP.toFixed(3);
+                landingLayer.style.transform = `scale(${(0.97 + homeP * 0.03).toFixed(3)})`;
+
+                if (homeP >= 0.7) {
+                    landingLayer.classList.remove('pointer-events-none');
+                } else {
+                    landingLayer.classList.add('pointer-events-none');
+                }
+
+                if (header) {
+                    header.style.opacity = homeP.toFixed(3);
+                    header.style.pointerEvents = homeP >= 0.5 ? 'auto' : 'none';
+                    header.classList.add('bg-obsidian/80', 'backdrop-blur-md', 'border-b', 'border-white/10');
+                }
+            } else {
+                landingLayer.style.opacity = '0';
+                landingLayer.classList.add('pointer-events-none');
+                if (header) {
+                    header.style.opacity = '0';
+                    header.style.pointerEvents = 'none';
+                }
+            }
+        });
+
+        // Initialize header hidden on fresh load
+        document.addEventListener('DOMContentLoaded', () => {
+            const header = document.getElementById('mainHeader');
+            if (header && window.scrollY < 20) {
+                header.style.opacity = '0';
+                header.style.pointerEvents = 'none';
+            }
+        });
+
+        // 2. Interactive Spotlight & Particle Canvas
+        const canvas = document.getElementById('ambientCanvas');
+        const ctx = canvas ? canvas.getContext('2d') : null;
+        let particles = [];
+
+        function resizeCanvas() {
+            if (!canvas) return;
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * (canvas ? canvas.width : 800);
+                this.y = Math.random() * (canvas ? canvas.height : 600);
+                this.size = Math.random() * 1.5 + 0.5;
+                this.speedX = (Math.random() - 0.5) * 0.3;
+                this.speedY = (Math.random() - 0.5) * 0.3;
+                this.opacity = Math.random() * 0.5 + 0.2;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.x < 0) this.x = canvas.width;
+                if (this.x > canvas.width) this.x = 0;
+                if (this.y < 0) this.y = canvas.height;
+                if (this.y > canvas.height) this.y = 0;
+            }
+            draw() {
+                if (!ctx) return;
+                ctx.fillStyle = `rgba(217, 4, 41, ${this.opacity})`;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        if (canvas && ctx) {
+            for (let i = 0; i < 40; i++) {
+                particles.push(new Particle());
+            }
+            function animateParticles() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach(p => {
+                    p.update();
+                    p.draw();
+                });
+                requestAnimationFrame(animateParticles);
+            }
+            animateParticles();
+        }
+
+        // Mousemove listener for dynamic radial ambient spot
+        window.addEventListener('mousemove', (e) => {
+            const ambientSpot = document.getElementById('ambientSpot');
+            if (ambientSpot) {
+                ambientSpot.style.setProperty('--mouse-x', `${e.clientX}px`);
+                ambientSpot.style.setProperty('--mouse-y', `${e.clientY}px`);
+            }
+        });
+
+        // 3. Animated Metric Numbers on Scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = parseInt(counter.getAttribute('data-target'), 10);
+                    let current = 0;
+                    const increment = target / 35;
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= target) {
+                            counter.innerText = target + (counter.parentElement.innerText.includes('Viewers') ? 'M+' : '+');
+                            clearInterval(timer);
+                        } else {
+                            counter.innerText = Math.ceil(current);
+                        }
+                    }, 30);
+                    observer.unobserve(counter);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.counter-num').forEach(c => observer.observe(c));
+
+        // 4. Founder Dossier Tabs
+        function switchFounderTab(tabId) {
+            const tabs = ['films', 'ott', 'reality'];
+
+            tabs.forEach(id => {
+                const panel = document.getElementById(`tabContent-${id}`);
+                const btn = document.getElementById(`tabBtn-${id}`);
+
+                if (panel) panel.classList.add('hidden');
+                if (btn) {
+                    btn.classList.remove('bg-crimson', 'text-white');
+                    btn.classList.add('bg-white/5', 'text-zinc-400');
+                }
+            });
+
+            const activePanel = document.getElementById(`tabContent-${tabId}`);
+            const activeBtn = document.getElementById(`tabBtn-${tabId}`);
+
+            if (activePanel) activePanel.classList.remove('hidden');
+            if (activeBtn) {
+                activeBtn.classList.remove('bg-white/5', 'text-zinc-400');
+                activeBtn.classList.add('bg-crimson', 'text-white');
+            }
+        }
+
+        // 5. Shelf Navigation & Dynamic Filter
+        function scrollShelf(direction) {
+            const shelf = document.getElementById('shelfContainer');
+            if (!shelf) return;
+            const scrollAmount = 290;
+            shelf.scrollBy({
+                left: direction === 'left' ? -scrollAmount : scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+
+        function filterShelf(category, clickedBtn) {
+            document.querySelectorAll('.shelf-filter-btn').forEach(btn => {
+                btn.classList.remove('bg-crimson', 'text-white');
+                btn.classList.add('bg-white/5', 'text-zinc-400');
+            });
+            
+            if (clickedBtn) {
+                clickedBtn.classList.remove('bg-white/5', 'text-zinc-400');
+                clickedBtn.classList.add('bg-crimson', 'text-white');
+            }
+
+            const items = document.querySelectorAll('.shelf-item');
+            items.forEach(item => {
+                if (category === 'all' || item.getAttribute('data-category') === category) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // 6. Project Data Repository for Modal (10 Exact Projects in images/works/)
+        const projectsData = {
+            kapil_ott: {
+                title: "The Great Indian Kapil Show",
+                category: "Netflix OTT Original",
+                role: "FLOOR LEAD",
+                platform: "Netflix",
+                credit: "Sahil Sheikh (Floor Management)",
+                location: "Film City, Mumbai",
+                cover: "images/works/great-indian-kapil-show.jpg",
+                synopsis: "Spearheading the studio floor and audience operations for Netflix's flagship Indian original comedy series, coordinating A-list international walk-ins and continuous multi-camera capture.",
+                imdb: "https://www.imdb.com/title/tt31804792/"
+            },
+            liv: {
+                title: "Love in Vietnam",
+                category: "Feature Film",
+                role: "PRODUCER",
+                platform: "JioHotstar / Theatrical",
+                credit: "Sahil Sheikh (Producer)",
+                location: "Vietnam & India",
+                cover: "images/works/love-in-vietnam.jpg",
+                synopsis: "An ambitious international romantic feature film connecting cinematic talent from Vietnam and India. Mounted with global line-production logistics, bi-lateral government approvals, and picturesque overseas landscapes. Produced by Sahil Sheikh.",
+                imdb: "https://www.imdb.com/title/tt33119106/"
+            },
+            bombay: {
+                title: "Bombay Stories",
+                category: "Feature Film",
+                role: "ASSOC. PRODUCER",
+                platform: "JioHotstar",
+                credit: "Sahil Sheikh (Associate Producer)",
+                location: "Mumbai Locations",
+                cover: "images/works/bombay-stories.jpg",
+                synopsis: "A critically recognized crime and urban narrative exploring the contrasts and underworld echoes of Mumbai. Associate Producer credits held by Sahil Sheikh.",
+                imdb: "https://www.imdb.com/title/tt13416474/"
+            },
+            kapil: {
+                title: "The Kapil Sharma Show",
+                category: "Primetime Comedy Broadcast",
+                role: "FLOOR MGMT",
+                platform: "Sony Entertainment Television",
+                credit: "Floor & Audience Coordination",
+                location: "Film City, Mumbai",
+                cover: "images/works/the-kapil-sharma-show.jpg",
+                synopsis: "Commanding the studio floor for India's foremost comedy powerhouse. Managing high-stakes celebrity walk-ins, multi-camera live audience timing, and continuous recording schedules.",
+                imdb: "https://www.imdb.com/title/tt5664166/"
+            },
+            biggboss: {
+                title: "Bigg Boss Franchise",
+                category: "Reality Broadcast",
+                role: "FLOOR LEAD",
+                platform: "Colors / JioCinema",
+                credit: "Stage & Floor Leadership",
+                location: "Mumbai / Lonavala",
+                cover: "images/works/Bigg-boss.jpg",
+                synopsis: "Multi-language floor management association across Hindi, Telugu, and Malayalam seasons. Real-time set protocols, live host interactions, and technical isolation coordination.",
+                imdb: "https://www.imdb.com/title/tt1385489/"
+            },
+            igt: {
+                title: "India’s Got Talent",
+                category: "National Reality Stage",
+                role: "FLOOR MGMT",
+                platform: "Sony Entertainment",
+                credit: "Audience & Staging Control",
+                location: "Mumbai Studio Floors",
+                cover: "images/works/indiasgot-talent.jpg",
+                synopsis: "Handling extreme live performance requirements, fire and aerial acts, multi-camera judge reveals, and massive studio audience coordination.",
+                imdb: "https://www.imdb.com/title/tt1467472/"
+            },
+            battleground: {
+                title: "Battleground",
+                category: "Gaming Reality Broadcast",
+                role: "FLOOR LEAD",
+                platform: "Amazon MiniTV / MX Player",
+                credit: "Stage & Floor Management",
+                location: "Mumbai",
+                cover: "images/works/battleground-amazon.jpg",
+                synopsis: "High-intensity live gaming tournament reality show format. Complete studio floor coordination, multi-camera contestant isolation setups, and dynamic live action broadcast execution.",
+                imdb: "https://www.imdb.com/title/tt36394918/?ref_=mv_sm"
+            },
+            pyaarreset: {
+                title: "Pyar Reset",
+                category: "Mobile OTT Series",
+                role: "PRODUCER",
+                platform: "MX Fatafat",
+                credit: "Sahil Sheikh (Producer)",
+                location: "Mumbai",
+                cover: "images/works/pyar-reset.jpg",
+                synopsis: "Bespoke digital micro-drama curated for vertical and snackable OTT viewing. Produced to capture rapid consumer retention with sharp storytelling arcs.",
+                imdb: "https://www.imdb.com/name/nm14185875/"
+            },
+            paris: {
+                title: "Love Beneath Paris Skies",
+                category: "European OTT Micro-Series",
+                role: "PRODUCER",
+                platform: "Kuku TV",
+                credit: "Sahil Sheikh (Producer)",
+                location: "Paris, France",
+                cover: "images/works/love-beneath-paris-skies.jpg",
+                synopsis: "An international romantic micro-drama filmed across iconic landmarks in Paris, France. Executed with a nimble cinema unit tailored for digital and mobile audiences.",
+                imdb: "https://www.imdb.com/name/nm14185875/"
+            },
+            spain: {
+                title: "Found Real Love in Spain",
+                category: "European OTT Micro-Series",
+                role: "PRODUCER",
+                platform: "Kuku TV",
+                credit: "Sahil Sheikh (Producer)",
+                location: "Madrid & Barcelona, Spain",
+                cover: "images/works/love-in-spain.jpg",
+                synopsis: "European episodic romantic series shot on location in Spain for Kuku TV. Designed for fast-paced vertical narrative retention and cinematic travel visuals.",
+                imdb: "https://www.imdb.com/name/nm14185875/"
+            }
+        };
+
+        function openModalById(id) {
+            const data = projectsData[id];
+            if (!data) return;
+
+            document.getElementById('modalTitle').innerText = data.title;
+            document.getElementById('modalCategory').innerText = data.category;
+            document.getElementById('modalRoleBadge').innerText = data.role;
+            document.getElementById('modalPlatform').innerText = data.platform;
+            document.getElementById('modalCredit').innerText = data.credit;
+            document.getElementById('modalLocation').innerText = data.location;
+            document.getElementById('modalSynopsis').innerText = data.synopsis;
+            
+            const coverEl = document.getElementById('modalCover');
+            coverEl.src = data.cover;
+
+            const imdbBtn = document.getElementById('modalExternalLink');
+            if (imdbBtn) {
+                imdbBtn.href = data.imdb || "https://www.imdb.com/name/nm14185875/";
+            }
+
+            const modal = document.getElementById('projectModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.classList.add('modal-active');
+        }
+
+        function closeModal(e) {
+            if (e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+            const modal = document.getElementById('projectModal');
+            if (!modal) return;
+            
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.classList.remove('modal-active');
+        }
+
+        function closeModalOnBackdrop(e) {
+            const card = document.getElementById('projectModalCard');
+            if (card && !card.contains(e.target)) {
+                closeModal(e);
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // 7. Office Switcher
+        function selectOffice(city) {
+            document.querySelectorAll('.office-card').forEach(c => {
+                c.classList.remove('active', 'bg-white', 'text-crimson', 'border-white', 'shadow-xl');
+                c.classList.add('bg-crimson', 'text-white', 'border-white/25', 'shadow-md');
+            });
+
+            const selected = document.getElementById(`office-${city}`);
+            if (selected) {
+                selected.classList.remove('bg-crimson', 'text-white', 'border-white/25', 'shadow-md');
+                selected.classList.add('active', 'bg-white', 'text-crimson', 'border-white', 'shadow-xl');
+            }
+        };
+        // 8. Contact Inquiry Form Handler
+        function handleInquirySubmit(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('formName').value;
+            const email = document.getElementById('formEmail').value;
+            const phone = document.getElementById('formPhone').value;
+            const nature = document.getElementById('formNature').value;
+            const message = document.getElementById('formMessage').value;
+
+            const subject = encodeURIComponent(`Production Inquiry: ${nature.toUpperCase()} - ${name}`);
+            const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nScope: ${nature}\n\nMessage:\n${message}`);
+
+            const alertBox = document.getElementById('formSuccessAlert');
+            alertBox.classList.remove('hidden');
+
+            setTimeout(() => {
+                window.location.href = `mailto:ufotv.in9@gmail.com?subject=${subject}&body=${body}`;
+            }, 800);
+        };
+
+        // 9. Mobile Menu Toggle (Smooth Slide Down / Roll Up)
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileNav');
+            const stickTop = document.getElementById('stickTop');
+            const stickBot = document.getElementById('stickBot');
+            if (!menu || !stickTop || !stickBot) return;
+
+            const isOpen = menu.classList.contains('menu-open');
+
+            if (isOpen) {
+                menu.classList.remove('menu-open', 'max-h-[500px]', 'opacity-100', 'pointer-events-auto', 'translate-y-0');
+                menu.classList.add('max-h-0', 'opacity-0', 'pointer-events-none', '-translate-y-2');
+
+                stickTop.classList.remove('translate-y-1', 'rotate-45');
+                stickBot.classList.remove('-translate-y-1', '-rotate-45');
+            } else {
+                menu.classList.remove('max-h-0', 'opacity-0', 'pointer-events-none', '-translate-y-2');
+                menu.classList.add('menu-open', 'max-h-[500px]', 'opacity-100', 'pointer-events-auto', 'translate-y-0');
+
+                stickTop.classList.add('translate-y-1', 'rotate-45');
+                stickBot.classList.add('-translate-y-1', '-rotate-45');
+            }
+        }
+
+        // 10. About Section 10-Photo Album Carousel
+        let currentAboutSlide = 0;
+        const totalAboutSlides = 10;
+        let aboutSlideInterval;
+
+        function updateAboutSlideUI() {
+            const slides = document.querySelectorAll('.about-slide');
+            const dots = document.querySelectorAll('.about-dot');
+            const counter = document.getElementById('aboutSlideCounter');
+
+            slides.forEach((slide, idx) => {
+                if (idx === currentAboutSlide) {
+                    slide.classList.remove('opacity-0', 'pointer-events-none');
+                    slide.classList.add('opacity-100');
+                } else {
+                    slide.classList.remove('opacity-100');
+                    slide.classList.add('opacity-0', 'pointer-events-none');
+                }
+            });
+
+            dots.forEach((dot, idx) => {
+                if (idx === currentAboutSlide) {
+                    dot.classList.remove('w-2', 'bg-white/30');
+                    dot.classList.add('w-8', 'bg-crimson');
+                } else {
+                    dot.classList.remove('w-8', 'bg-crimson');
+                    dot.classList.add('w-2', 'bg-white/30');
+                }
+            });
+
+            if (counter) {
+                counter.textContent = String(currentAboutSlide + 1).padStart(2, '0');
+            }
+        }
+
+        function nextAboutSlide() {
+            currentAboutSlide = (currentAboutSlide + 1) % totalAboutSlides;
+            updateAboutSlideUI();
+            resetAboutSlideTimer();
+        }
+
+        function prevAboutSlide() {
+            currentAboutSlide = (currentAboutSlide - 1 + totalAboutSlides) % totalAboutSlides;
+            updateAboutSlideUI();
+            resetAboutSlideTimer();
+        }
+
+        function setAboutSlide(idx) {
+            currentAboutSlide = idx;
+            updateAboutSlideUI();
+            resetAboutSlideTimer();
+        }
+
+        function startAboutSlideTimer() {
+            clearInterval(aboutSlideInterval);
+            aboutSlideInterval = setInterval(nextAboutSlide, 3500);
+        }
+
+        function resetAboutSlideTimer() {
+            clearInterval(aboutSlideInterval);
+            startAboutSlideTimer();
+        }
+
+        // Initialize carousel immediately
+        updateAboutSlideUI();
+        startAboutSlideTimer();
+
+        // 11. Native High-Performance Scroll Reveal (Clean Fade-Up & Raise)
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            root: null,
+            threshold: 0.12,
+            rootMargin: '0px 0px -40px 0px'
+        });
+
+        document.querySelectorAll('.reveal-on-scroll').forEach(el => {
+            revealObserver.observe(el);
+        });
+    </script>
+</body>
+</html>
