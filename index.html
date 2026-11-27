@@ -2124,33 +2124,46 @@
             revealObserver.observe(el);
         });
 
-        let touchStartY = 0;
+        // 12. Unified tap (mobile) & click (PC) step controller: UFO -> Quote -> Landing Page
+        let pointerStartY = 0;
+        let activePointerId = null;
 
-        window.addEventListener('touchstart', (e) => {
-            if (!e.touches || !e.touches[0]) return;
-            touchStartY = e.touches[0].clientY;
+        window.addEventListener('pointerdown', (e) => {
+            if (e.pointerType === 'mouse' && e.button !== 0) return;
+            pointerStartY = e.clientY;
+            activePointerId = e.pointerId;
         }, { passive: true });
 
-        window.addEventListener('touchend', (e) => {
+        window.addEventListener('pointerup', (e) => {
+            if (e.pointerId !== activePointerId) return;
+            activePointerId = null;
+
+            // Don't hijack clicks on interactive buttons, links, inputs, or modals
+            if (e.target.closest('a, button, input, select, textarea, #projectModal, #mainHeader')) {
+                return;
+            }
+
             const hero = document.getElementById('hero');
-            if (!hero || !e.changedTouches || !e.changedTouches[0]) return;
+            if (!hero) return;
 
             const runway = hero.offsetHeight - window.innerHeight;
             if (runway <= 0) return;
 
             const heroTop = hero.offsetTop;
-            const heroBottom = heroTop + runway;
-            if (window.scrollY < heroTop - 20 || window.scrollY > heroBottom + 20) return;
+            const currentY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
+            if (currentY < heroTop - 20 || currentY > heroTop + hero.offsetHeight) return;
 
-            const p = Math.min(Math.max((window.scrollY - heroTop) / runway, 0), 1);
-            const moved = Math.abs(e.changedTouches[0].clientY - touchStartY);
+            const p = Math.min(Math.max((currentY - heroTop) / runway, 0), 1);
+            const moved = Math.abs(e.clientY - pointerStartY);
 
-            if (moved < 12 && p < 0.75) {
+            // Treat a quick tap/click (< 20px movement) while in the intro as a step forward
+            if (moved < 20 && p < 0.75) {
                 const nextProgress = p < 0.35 ? 0.48 : 1;
-                window.scrollTo({
-                    top: heroTop + runway * nextProgress,
-                    behavior: 'smooth'
-                });
+                const targetY = Math.round(heroTop + runway * nextProgress);
+                document.documentElement.scrollTop = targetY;
+                document.body.scrollTop = targetY;
+                window.scrollTo(0, targetY);
+                window.dispatchEvent(new Event('scroll'));
             }
         }, { passive: true });
     </script>
