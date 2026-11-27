@@ -566,7 +566,7 @@
                     <div class="absolute -inset-1 rounded-2xl bg-crimson/15 -z-10 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </div>
 
-                <!-- 5. Bio Description -->
+                <!-- 5. Bio Detion -->
                 <p class="text-sm sm:text-base text-zinc-300 font-light leading-relaxed max-w-2xl mx-auto pt-1">
                     Leading high-velocity broadcast floor executions, primetime reality formats, and international film co-productions with a decade-long track record of zero-error command.
                 </p>
@@ -1588,7 +1588,7 @@
         </div>
     </div>
 
-    <!-- Client-Side Scripts (Pure Browser Native, Zero Audio Dependencies) -->
+    <!-- Client-Side ts (Pure Browser Native, Zero Audio Dependencies) -->
     <script>
         // 1. Continuous Zoom & Statement Fade Controller
         window.addEventListener('scroll', () => {
@@ -1606,6 +1606,32 @@
             if (runway <= 0) return;
 
             const p = Math.min(Math.max(scrollY / runway, 0), 1);
+
+            // Touch tap step controller for UFO -> Quote -> Landing Page
+        let touchStartY = 0;
+
+        window.addEventListener('touchstart', (e) => {
+            touchStartY = e.touches[0].clientY;
+        }, { passive: true });
+
+        window.addEventListener('touchend', (e) => {
+            const hero = document.getElementById('hero');
+            if (!hero || !e.changedTouches[0]) return;
+
+            const runway = hero.offsetHeight - window.innerHeight;
+            if (runway <= 0) return;
+
+            const p = Math.min(Math.max((window.scrollY - hero.offsetTop) / runway, 0), 1);
+            const moved = Math.abs(e.changedTouches[0].clientY - touchStartY);
+
+            if (moved < 12 && p < 0.75) {
+                const nextProgress = p < 0.35 ? 0.48 : 1;
+                window.scrollTo({
+                    top: hero.offsetTop + runway * nextProgress,
+                    behavior: 'smooth'
+                });
+            }
+        }, { passive: true });
 
             // 1. LOGO: Continuous Zoom In and smooth fade
             if (p < 0.35) {
