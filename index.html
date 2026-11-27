@@ -2125,11 +2125,53 @@
         });
 
         // 12. Unified tap (mobile) & click (PC) step controller: UFO -> Quote -> Landing Page
+  
         let pointerStartY = 0;
         let activePointerId = null;
+        let introAnimFrame = null;
+
+        function animateScrollTo(targetY, duration = 450) {
+            if (introAnimFrame) cancelAnimationFrame(introAnimFrame);
+
+            const startY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
+            const distance = targetY - startY;
+            if (Math.abs(distance) < 2) return;
+
+            const startTime = performance.now();
+
+            function step(now) {
+                const elapsed = now - startTime;
+                const t = Math.min(elapsed / duration, 1);
+                // Ease-in-out cubic so the logo zoom-in accelerates smoothly into the transition
+                const eased = t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+                const nextY = Math.round(startY + distance * eased);
+
+                window.scrollTo(0, nextY);
+
+                if (t < 1) {
+                    introAnimFrame = requestAnimationFrame(step);
+                } else {
+                    introAnimFrame = null;
+                }
+            }
+
+            introAnimFrame = requestAnimationFrame(step);
+        }
+
+        // Cancel animated step if the user starts manually scrolling/dragging
+        window.addEventListener('wheel', () => {
+            if (introAnimFrame) {
+                cancelAnimationFrame(introAnimFrame);
+                introAnimFrame = null;
+            }
+        }, { passive: true });
 
         window.addEventListener('pointerdown', (e) => {
             if (e.pointerType === 'mouse' && e.button !== 0) return;
+            if (introAnimFrame) {
+                cancelAnimationFrame(introAnimFrame);
+                introAnimFrame = null;
+            }
             pointerStartY = e.clientY;
             activePointerId = e.pointerId;
         }, { passive: true });
@@ -2138,7 +2180,6 @@
             if (e.pointerId !== activePointerId) return;
             activePointerId = null;
 
-            // Don't hijack clicks on interactive buttons, links, inputs, or modals
             if (e.target.closest('a, button, input, select, textarea, #projectModal, #mainHeader')) {
                 return;
             }
@@ -2156,14 +2197,10 @@
             const p = Math.min(Math.max((currentY - heroTop) / runway, 0), 1);
             const moved = Math.abs(e.clientY - pointerStartY);
 
-            // Treat a quick tap/click (< 20px movement) while in the intro as a step forward
             if (moved < 20 && p < 0.75) {
                 const nextProgress = p < 0.35 ? 0.48 : 1;
                 const targetY = Math.round(heroTop + runway * nextProgress);
-                document.documentElement.scrollTop = targetY;
-                document.body.scrollTop = targetY;
-                window.scrollTo(0, targetY);
-                window.dispatchEvent(new Event('scroll'));
+                animateScrollTo(targetY, p < 0.35 ? 550 : 500);
             }
         }, { passive: true });
     </script>
